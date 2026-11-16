@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-site="deploy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Single Site Config Block (Base URL, Navigation Graph & Contact Routing) -->
+  <script>
+    window.SITE_CONFIG = {
+      baseUrl: "https://esam-haraz.github.io/Desktop-Tools/",
+      currentSiteId: "desktop-tools",
+      sitesGraph: [
+        { id: "hub",           labelEn: "Services Hub",  labelAr: "المركز الرئيسي",   url: "https://esam-haraz.github.io/hub/" },
+        { id: "desktop-tools", labelEn: "Desktop Tools", labelAr: "أدوات سطح المكتب", url: "./" },
+        { id: "data",          labelEn: "Data Analysis", labelAr: "تحليل البيانات",   url: "https://esam-haraz.github.io/Data-Analysis/" },
+        { id: "portfolio",     labelEn: "Portfolio",     labelAr: "معرض الأعمال",     url: "https://esam-haraz.github.io/portfolio/" }
+      ],
+      hubContactUrl: "https://esam-haraz.github.io/hub/#contact",
+      email: "esamv20@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/esam-haraz-459925402"
+    };
+  </script>
+
+  <!-- Primary SEO & Canonical Metadata -->
+  <title>Windows Desktop Tools — Esam Haraz</title>
+  <meta name="description" content="Standalone Windows desktop utilities and automation tools built by Esam Haraz with Python and PyQt6, packaged as portable single-file executables.">
+  <meta name="author" content="Esam Haraz">
+  <link rel="canonical" id="meta-canonical" href="https://esam-haraz.github.io/Desktop-Tools/">
+
+  <!-- Open Graph & Social Sharing Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ar_EG">
+  <meta property="og:title" content="Windows Desktop Tools — Esam Haraz">
+  <meta property="og:description" content="Standalone Windows desktop utilities built with Python and PyQt6, featuring silent setup automation, portable configuration, and bilingual interfaces.">
+  <meta property="og:url" id="meta-og-url" content="https://esam-haraz.github.io/Desktop-Tools/">
+  <meta property="og:image" id="meta-og-image" content="https://esam-haraz.github.io/Desktop-Tools/assets/og-cover.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Windows Desktop Tools — Esam Haraz">
+  <meta name="twitter:description" content="Standalone Windows desktop utilities built with Python and PyQt6, packaged as portable single-file executables.">
+  <meta name="twitter:image" id="meta-twitter-image" content="https://esam-haraz.github.io/Desktop-Tools/assets/og-cover.png?v=1">
+
+  <!-- Inline Vector Favicon (Deploy Green #35E08C) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23080F0D' stroke='%2335E08C' stroke-width='3'/%3E%3Crect x='14' y='18' width='36' height='8' rx='4' fill='%2335E08C'/%3E%3Crect x='14' y='30' width='24' height='8' rx='4' fill='%2335E08C'/%3E%3Crect x='14' y='42' width='30' height='8' rx='4' fill='%2335E08C'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Bricolage Grotesque, Instrument Sans, DM Mono & IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared Design System v1.1 -->
+  <link rel="stylesheet" href="./assets/ds.css">
+  <script src="./assets/ds.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="ds-skip-link" data-i18n="skipToMain">Skip to main content</a>
+
+  <!-- Circular Language Transition Curtain (Wipe Motion) -->
+  <div class="ds-curtain" id="ds-curtain" aria-hidden="true">
+    <div class="ds-curtain-layer ds-curtain-outer" id="ds-curtain-outer"></div>
+    <div class="ds-curtain-layer ds-curtain-inner" id="ds-curtain-inner">
+      <span class="ds-curtain-sub" id="ds-curtain-sub">SWITCHING LANGUAGE</span>
+      <span class="ds-curtain-label" id="ds-curtain-label">DESKTOP TOOLS</span>
+    </div>
+  </div>
+
+  <!-- Site Header with Mini Node-Graph Navigation & Mobile (<480px) Dropdown -->
+  <header class="ds-header">
+    <a href="./" class="ds-brand">
+      <span class="ds-brand-mark" aria-hidden="true"></span>
+      <span data-i18n="brandName">Esam Haraz</span>
+    </a>
+
+    <!-- Desktop & Tablet Mini Node-Graph (Static fallback included for No-JS) -->
+    <nav class="ds-mini-graph" id="ds-mini-graph" aria-label="Sites network navigation">
+      <a href="https://esam-haraz.github.io/hub/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Services Hub</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="./" class="ds-mini-node is-current" aria-current="page">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Desktop Tools</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="https://esam-haraz.github.io/Data-Analysis/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Data Analysis</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="https://esam-haraz.github.io/portfolio/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Portfolio</span>
+      </a>
+    </nav>
+
+    <!-- Mobile (<480px) Compact Dropdown Switcher -->
+    <div class="ds-nav-dropdown" id="ds-nav-dropdown">
+      <button type="button"
+              class="ds-nav-dropdown-btn"
+              id="ds-nav-dropdown-btn"
+              aria-expanded="false"
+              aria-controls="ds-nav-dropdown-menu">
+        Tools ▾
+      </button>
+      <div class="ds-nav-dropdown-menu" id="ds-nav-dropdown-menu" role="menu">
+        <a href="https://esam-haraz.github.io/hub/" role="menuitem">Services Hub ↗</a>
+        <a href="./" class="is-current" aria-current="page" role="menuitem">Desktop Tools ●</a>
+        <a href="https://esam-haraz.github.io/Data-Analysis/" role="menuitem">Data Analysis ↗</a>
+        <a href="https://esam-haraz.github.io/portfolio/" role="menuitem">Portfolio ↗</a>
+      </div>
+    </div>
+
+    <!-- Theme & Language Controls -->
+    <div class="ds-header-controls">
+      <button type="button" class="ds-icon-btn" id="ds-theme-toggle" aria-pressed="false" aria-label="Switch to dark mode">
+        <span data-theme-label>Dark</span>
+      </button>
+      <button type="button" class="ds-icon-btn" id="ds-lang-toggle" aria-label="التبديل إلى اللغة العربية">
+        عربي
+      </button>
+    </div>
+  </header>
+
+  <!-- Thin Top Scroll Progress Bar -->
+  <div class="ds-top-progress" aria-hidden="true">
+    <div class="ds-top-progress-fill"></div>
+  </div>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         HERO & RADIAL SPIDER NETWORK GRAPH
+         ====================================================================== -->
+    <section class="ds-section" aria-labelledby="tools-hero-title">
+      <div class="ds-container">
+        <div class="ds-spider-wrap">
+          <div class="ds-spider-canvas" id="ds-spider-canvas">
+
+            <!-- Concentric SVG Rings & Animated Connectors (Desktop) -->
+            <svg class="ds-spider-svg" id="ds-spider-svg" aria-hidden="true">
+              <circle class="ds-spider-ring" cx="500" cy="240" r="160"></circle>
+              <circle class="ds-spider-ring" cx="500" cy="240" r="290"></circle>
+              <circle class="ds-spider-ring" cx="500" cy="240" r="420"></circle>
+
+              <path class="ds-spider-edge-base" data-edge="0" d=""></path>
+              <path class="ds-spider-edge-fill" data-edge="0" d=""></path>
+            </svg>
+
+            <!-- Central Topic Node -->
+            <div class="ds-spider-center" id="ds-spider-center">
+              <div class="ds-chips-row" style="justify-content: center; margin-block-end: var(--space-3);">
+                <span class="ds-chip" data-i18n="toolsChip">Windows utilities · Python &amp; PyQt6</span>
+              </div>
+              <h1 id="tools-hero-title" style="font-size: var(--text-hero); line-height: 1.15; margin-block-end: var(--space-3);" data-i18n="heroTitle">
+                Desktop Tools
+              </h1>
+              <p style="color: var(--ink-muted); margin-inline: auto;" data-i18n="heroLead">
+                Standalone Windows utilities packaged as portable single-file executables—built to automate repetitive setup, file operations, and system workflows without external dependencies.
+              </p>
+            </div>
+
+            <!-- Connected Project Nodes (Real <a> links for keyboard & No-JS) -->
+            <div class="ds-spider-branches">
+
+              <!-- Branch 0: AutoDeploy v1.2.0 -->
+              <a href="https://esam-haraz.github.io/AutoDeploy/" class="ds-spider-node" data-branch="0">
+                <div>
+                  <div class="ds-spider-node-top" style="margin-block-end: var(--space-2);">
+                    <span class="ds-chip ds-chip-accent" data-i18n="p1Domain">Windows Utility</span>
+                    <div class="ds-chips-row">
+                      <span class="ds-chip">Python</span>
+                      <span class="ds-chip">PyQt6</span>
+                      <span class="ds-chip">.EXE</span>
+                    </div>
+                  </div>
+                  <h2 class="ds-spider-node-title" data-i18n="p1Title">
+                    AutoDeploy v1.2.0 — Post-Format Windows Setup Automation
+                  </h2>
+                </div>
+
+                <div class="ds-spider-stat" data-i18n="p1Stat">
+                  Silent queue · post-install actions · self-updating .EXE
+                </div>
+
+                <p class="ds-spider-extra" data-i18n="p1Extra">
+                  Automates post-format software installation with silent flags, sequential post-install file/registry steps, and persistent NTFS stream settings.
+                </p>
+
+                <span class="ds-spider-cta" data-i18n="openProject">Open project →</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: WHAT I DO
+         ====================================================================== -->
+    <section class="ds-section" id="what-i-do" aria-labelledby="what-title">
+      <div class="ds-container">
+        <div class="ds-section-header">
+          <h2 class="ds-section-title" id="what-title" data-i18n="whatTitle">What I do</h2>
+          <p class="ds-section-desc" data-i18n="whatDesc">
+            Focused desktop utilities and system automation tools built around clear operational workflows.
+          </p>
+        </div>
+
+        <div class="ds-services-grid">
+          <article class="ds-node">
+            <div class="ds-node-header">
+              <span>Python · PyQt6 · Single-File .EXE</span>
+            </div>
+            <div class="ds-node-body">
+              <h3 style="font-size: var(--text-h3); margin-block-end: var(--space-2);" data-i18n="srv1Title">
+                Standalone Windows utilities
+              </h3>
+              <p style="color: var(--ink-muted); font-size: var(--text-sm);" data-i18n="srv1Body">
+                Desktop applications built in Python and PyQt6 and compiled into self-contained Windows executables that run cleanly with zero runtime installation.
+              </p>
+            </div>
+          </article>
+
+          <article class="ds-node">
+            <div class="ds-node-header">
+              <span>Silent Setup · Win32 · Registry</span>
+            </div>
+            <div class="ds-node-body">
+              <h3 style="font-size: var(--text-h3); margin-block-end: var(--space-2);" data-i18n="srv2Title">
+                System &amp; post-format automation
+              </h3>
+              <p style="color: var(--ink-muted); font-size: var(--text-sm);" data-i18n="srv2Body">
+                Automated installer queues, silent CLI switches, file organization scripts, and post-install configuration steps designed to eliminate repetitive manual setup.
+              </p>
+            </div>
+          </article>
+
+          <article class="ds-node">
+            <div class="ds-node-header">
+              <span>EN / AR · Portable State · Logs</span>
+            </div>
+            <div class="ds-node-body">
+              <h3 style="font-size: var(--text-h3); margin-block-end: var(--space-2);" data-i18n="srv3Title">
+                Bilingual &amp; portable UX
+              </h3>
+              <p style="color: var(--ink-muted); font-size: var(--text-sm);" data-i18n="srv3Body">
+                Responsive interfaces supporting English and Arabic with persistent local configuration, execution logs, and safe self-updating workflows.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: HOW I WORK (4-NODE CONNECTED PIPELINE WITH PORTS)
+         ====================================================================== -->
+    <section class="ds-section" id="how-i-work" aria-labelledby="how-title">
+      <div class="ds-container">
+        <div class="ds-section-header">
+          <h2 class="ds-section-title" id="how-title" data-i18n="howTitle">How I work</h2>
+          <p class="ds-section-desc" data-i18n="howDesc">
+            Every desktop utility follows a structured four-stage engineering pipeline from workflow mapping to standalone release.
+          </p>
+        </div>
+
+        <div class="ds-pipeline-row">
+          <!-- Step 01 -->
+          <div class="ds-pipeline-step">
+            <span class="ds-port ds-port--out is-connected" aria-hidden="true"></span>
+            <div class="ds-step-top">
+              <span class="ds-step-badge">Step 01</span>
+              <span class="ds-step-pct">25%</span>
+            </div>
+            <div>
+              <h3 style="font-size: var(--text-h3); margin-block-end: var(--space-1);" data-i18n="step1Title">Scope</h3>
+              <p style="font-size: var(--text-sm); color: var(--ink-muted);" data-i18n="step1Body">
+                Define the exact Windows task, required inputs, edge cases, and failure handling before writing interface code.
+              </p>
+            </div>
+            <div class="ds-step-meter">
+              <div class="ds-progress" aria-hidden="true">
+                <div class="ds-progress-fill" style="--progress: 0.25;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connector 01 -> 02 -->
+          <div class="ds-pipeline-link" aria-hidden="true">
+            <svg class="ds-connector" data-scroll-fill data-connector-index="0" viewBox="0 0 34 24">
+              <line class="ds-connector-base" x1="0" y1="12" x2="34" y2="12"></line>
+              <line class="ds-connector-fill" x1="0" y1="12" x2="34" y2="12"></line>
+            </svg>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="ds-pipeline-step">
+            <span class="ds-port ds-port--in is-connected" aria-hidden="true"></span>
+            <span class="ds-port ds-port--out is-connected" aria-hidden="true"></span>
+            <div class="ds-step-top">
+              <span class="ds-step-badge">Step 02</span>
+              <span class="ds-step-pct">50%</span>
+            </div>
+            <div>
+              <h3 style="font-size: var(--text-h3); margin-block-end: var(--space-1);" data-i18n="step2Title">Build &amp; UI</h3>
+              <p style="font-size: var(--text-sm); color: var(--ink-muted);" data-i18n="step2Body">
+                Implement non-blocking worker threads in Python and a clean PyQt6 interface with real-time progress and logs.
+              </p>
+            </div>
+            <div class="ds-step-meter">
+              <div class="ds-progress" aria-hidden="true">
+                <div class="ds-progress-fill" style="--progress: 0.50;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connector 02 -> 03 -->
+          <div class="ds-pipeline-link" aria-hidden="true">
+            <svg class="ds-connector" data-scroll-fill data-connector-index="1" viewBox="0 0 34 24">
+              <line class="ds-connector-base" x1="0" y1="12" x2="34" y2="12"></line>
+              <line class="ds-connector-fill" x1="0" y1="12" x2="34" y2="12"></line>
+            </svg>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="ds-pipeline-step">
+            <span class="ds-port ds-port--in is-connected" aria-hidden="true"></span>
+            <span class="ds-port ds-port--out is-connected" aria-hidden="true"></span>
+            <div class="ds-step-top">
+              <span class="ds-step-badge">Step 03</span>
+              <span class="ds-step-pct">75%</span>
+            </div>
+            <div>
+              <h3 style="font-size: var(--text-h3); margin-block-end: var(--space-1);" data-i18n="step3Title">Package</h3>
+              <p style="font-size: var(--text-sm); color: var(--ink-muted);" data-i18n="step3Body">
+                Bundle dependencies into a single portable .EXE and verify clean execution across fresh Windows environments.
+              </p>
+            </div>
+            <div class="ds-step-meter">
+              <div class="ds-progress" aria-hidden="true">
+                <div class="ds-progress-fill" style="--progress: 0.75;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connector 03 -> 04 -->
+          <div class="ds-pipeline-link" aria-hidden="true">
+            <svg class="ds-connector" data-scroll-fill data-connector-index="2" viewBox="0 0 34 24">
+              <line class="ds-connector-base" x1="0" y1="12" x2="34" y2="12"></line>
+              <line class="ds-connector-fill" x1="0" y1="12" x2="34" y2="12"></line>
+            </svg>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="ds-pipeline-step">
+            <span class="ds-port ds-port--in is-connected" aria-hidden="true"></span>
+            <div class="ds-step-top">
+              <span class="ds-step-badge">Step 04</span>
+              <span class="ds-step-pct">100%</span>
+            </div>
+            <div>
+              <h3 style="font-size: var(--text-h3); margin-block-end: var(--space-1);" data-i18n="step4Title">Release</h3>
+              <p style="font-size: var(--text-sm); color: var(--ink-muted);" data-i18n="step4Body">
+                Publish versioned releases on GitHub with bilingual documentation, usage notes, and reproducible source code.
+              </p>
+            </div>
+            <div class="ds-step-meter">
+              <div class="ds-progress" aria-hidden="true">
+                <div class="ds-progress-fill" style="--progress: 1;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Contact CTA (Bound to SITE_CONFIG.hubContactUrl -> Hub #contact) -->
+        <div style="margin-block-start: var(--space-6); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); background-color: var(--bg-surface); border: 1.5px solid var(--rule-strong); border-radius: var(--radius-lg); padding: var(--space-5);">
+          <div>
+            <h3 style="font-size: var(--text-h3); margin-block-end: var(--space-1);" data-i18n="ctaBoxTitle">
+              Need a custom Windows utility or automation script?
+            </h3>
+            <p style="font-size: var(--text-sm); color: var(--ink-muted);" data-i18n="ctaBoxDesc">
+              Share your workflow requirements through the Services Hub contact form to discuss a tailored desktop tool.
+            </p>
+          </div>
+          <a href="https://esam-haraz.github.io/hub/#contact" class="ds-btn ds-btn-primary" data-contact-cta data-i18n="ctaBoxBtn">
+            Start a project →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="ds-footer">
+    <div class="ds-container">
+      <div class="ds-footer-grid">
+        <div>
+          <strong style="font-family: var(--font-display); font-size: 1.05rem;" data-i18n="brandName">Esam Haraz</strong>
+          <p style="font-size: var(--text-sm); color: var(--ink-muted); margin-block-start: var(--space-1);" data-i18n="footerTagline">
+            Windows Desktop Tools · Python &amp; PyQt6
+          </p>
+        </div>
+
+        <div class="ds-footer-links">
+          <a href="https://esam-haraz.github.io/AutoDeploy/" class="ds-btn ds-btn-secondary">AutoDeploy ↗</a>
+          <a href="https://esam-haraz.github.io/Data-Analysis/" class="ds-btn ds-btn-secondary" data-i18n="navData">Data Analysis ↗</a>
+          <a href="https://github.com/Esam-Haraz" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn-secondary">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/esam-haraz-459925402" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn-secondary">LinkedIn ↗</a>
+          <a href="https://esam-haraz.github.io/hub/#contact" class="ds-btn ds-btn-secondary" data-contact-cta>esamv20@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="ds-footer-bottom">
+        <span data-i18n="copyright">© 2026 Esam Haraz.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BILINGUAL DICTIONARY (EN & AR)
+       ========================================================================== -->
+  <script>
+    window.PAGE_I18N = {
+      en: {
+        skipToMain: "Skip to main content",
+        brandName: "Esam Haraz",
+        toolsChip: "Windows utilities · Python & PyQt6",
+        heroTitle: "Desktop Tools",
+        heroLead: "Standalone Windows utilities packaged as portable single-file executables—built to automate repetitive setup, file operations, and system workflows without external dependencies.",
+        p1Domain: "Windows Utility",
+        p1Title: "AutoDeploy v1.2.0 — Post-Format Windows Setup Automation",
+        p1Stat: "Silent queue · post-install actions · self-updating .EXE",
+        p1Extra: "Automates post-format software installation with silent flags, sequential post-install file/registry steps, and persistent NTFS stream settings.",
+        openProject: "Open project →",
+        whatTitle: "What I do",
+        whatDesc: "Focused desktop utilities and system automation tools built around clear operational workflows.",
+        srv1Title: "Standalone Windows utilities",
+        srv1Body: "Desktop applications built in Python and PyQt6 and compiled into self-contained Windows executables that run cleanly with zero runtime installation.",
+        srv2Title: "System & post-format automation",
+        srv2Body: "Automated installer queues, silent CLI switches, file organization scripts, and post-install configuration steps designed to eliminate repetitive manual setup.",
+        srv3Title: "Bilingual & portable UX",
+        srv3Body: "Responsive interfaces supporting English and Arabic with persistent local configuration, execution logs, and safe self-updating workflows.",
+        howTitle: "How I work",
+        howDesc: "Every desktop utility follows a structured four-stage engineering pipeline from workflow mapping to standalone release.",
+        step1Title: "Scope",
+        step1Body: "Define the exact Windows task, required inputs, edge cases, and failure handling before writing interface code.",
+        step2Title: "Build & UI",
+        step2Body: "Implement non-blocking worker threads in Python and a clean PyQt6 interface with real-time progress and logs.",
+        step3Title: "Package",
+        step3Body: "Bundle dependencies into a single portable .EXE and verify clean execution across fresh Windows environments.",
+        step4Title: "Release",
+        step4Body: "Publish versioned releases on GitHub with bilingual documentation, usage notes, and reproducible source code.",
+        ctaBoxTitle: "Need a custom Windows utility or automation script?",
+        ctaBoxDesc: "Share your workflow requirements through the Services Hub contact form to discuss a tailored desktop tool.",
+        ctaBoxBtn: "Start a project →",
+        footerTagline: "Windows Desktop Tools · Python & PyQt6",
+        navData: "Data Analysis ↗",
+        copyright: "© 2026 Esam Haraz."
+      },
+      ar: {
+        skipToMain: "تخطي إلى المحتوى الرئيسي",
+        brandName: "عصام حراز",
+        toolsChip: "أدوات ويندوز · Python و PyQt6",
+        heroTitle: "أدوات سطح المكتب",
+        heroLead: "أدوات مستقلة لنظام ويندوز مغلفة في ملفات تنفيذية محمولة (.EXE)—مصممة لأتمتة تثبيت البرامج وإدارة الملفات ومهام النظام المتكررة بدون أي متطلبات تثبيت خارجية.",
+        p1Domain: "أداة ويندوز",
+        p1Title: "AutoDeploy v1.2.0 — أتمتة إعداد الويندوز بعد الفورمات",
+        p1Stat: "طابور تثبيت صامت · خطوات ما بعد التثبيت · ملف .EXE محمول",
+        p1Extra: "يؤتمت تثبيت البرامج بعد فورمات الويندوز بأوامر التثبيت الصامت، وخطوات نسخ الملفات وتعديل الريجستري، وحفظ الإعدادات داخل تدفقات NTFS.",
+        openProject: "فتح المشروع ←",
+        whatTitle: "ما أقدمه",
+        whatDesc: "أدوات سطح مكتب عملية وحلول أتمتة للنظام مبنية وفق متطلبات تشغيلية واضحة.",
+        srv1Title: "أدوات ويندوز مستقلة",
+        srv1Body: "تطبيقات سطح مكتب مطورة بلغة Python و PyQt6 ومجمعة في ملف تنفيذي واحد يعمل مباشرة على ويندوز بدون الحاجة لتثبيت بيئات تشغيل.",
+        srv2Title: "أتمتة النظام وما بعد الفورمات",
+        srv2Body: "طوابير تثبيت تلقائية، وأوامر تشغيل صامتة، وسكربتات تنظيم الملفات وخطوات الإعداد المسبق لتوفير الوقت وتجنب التكرار اليدوي.",
+        srv3Title: "تجربة مستخدم محمولة وثنائية اللغة",
+        srv3Body: "واجهات تدعم اللغتين العربية والإنجليزية مع حفظ الإعدادات محلياً وسجلات تنفيذ واضحة ودعم التحديث الذاتي الآمن.",
+        howTitle: "منهجية العمل",
+        howDesc: "تتبع كل أداة مسار تطوير واضح من أربع مراحل متسلسلة بدءاً من تحديد المتطلبات وحتى النشر كملف تنفيذي مستقل.",
+        step1Title: "تحديد النطاق",
+        step1Body: "تحديد المهمة المطلوبة على ويندوز والمدخلات والحالات الاستثنائية وطريقة التعامل مع الأخطاء قبل بناء الواجهة.",
+        step2Title: "البرمجة والواجهة",
+        step2Body: "تنفيذ العمليات في مسارات خلفية (Worker Threads) بـ Python مع واجهة PyQt6 تعرض التقدم وسجل التنفيذ لحظياً.",
+        step3Title: "التغليف والاختبار",
+        step3Body: "دمج الاعتماديات في ملف .EXE محمول واحد واختباره على بيئة ويندوز نظيفة لضمان الاستقرار.",
+        step4Title: "الإصدار والتوثيق",
+        step4Body: "نشر الإصدارات على GitHub مع توثيق كامل باللغتين وتعليمات التشغيل والكود المصدري.",
+        ctaBoxTitle: "هل تحتاج إلى أداة ويندوز مخصصة أو سكربت أتمتة؟",
+        ctaBoxDesc: "شارك تفاصيل المهمة التي ترغب في أتمتتها عبر نموذج التواصل في المركز الرئيسي.",
+        ctaBoxBtn: "ابدأ مشروعاً ←",
+        footerTagline: "أدوات سطح مكتب لويندوز · Python و PyQt6",
+        navData: "تحليل البيانات ↗",
+        copyright: "© 2026 عصام حراز."
+      }
+    };
+  </script>
+</body>
+</html>
