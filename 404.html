@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-site="deploy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Single Site Config Block -->
+  <script>
+    window.SITE_CONFIG = {
+      baseUrl: "https://esam-haraz.github.io/Desktop-Tools/",
+      currentSiteId: "desktop-tools",
+      sitesGraph: [
+        { id: "hub",           labelEn: "Services Hub",  labelAr: "المركز الرئيسي",   url: "https://esam-haraz.github.io/hub/" },
+        { id: "desktop-tools", labelEn: "Desktop Tools", labelAr: "أدوات سطح المكتب", url: "./" },
+        { id: "data",          labelEn: "Data Analysis", labelAr: "تحليل البيانات",   url: "https://esam-haraz.github.io/Data-Analysis/" },
+        { id: "portfolio",     labelEn: "Portfolio",     labelAr: "معرض الأعمال",     url: "https://esam-haraz.github.io/portfolio/" }
+      ],
+      hubContactUrl: "https://esam-haraz.github.io/hub/#contact",
+      email: "esamv20@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/esam-haraz-459925402"
+    };
+  </script>
+
+  <title>404 — Page Not Found | Desktop Tools</title>
+  <meta name="robots" content="noindex">
+
+  <!-- Inline Vector Favicon (Deploy Green #35E08C) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23080F0D' stroke='%2335E08C' stroke-width='3'/%3E%3Crect x='14' y='18' width='36' height='8' rx='4' fill='%2335E08C'/%3E%3Crect x='14' y='30' width='24' height='8' rx='4' fill='%2335E08C'/%3E%3Crect x='14' y='42' width='30' height='8' rx='4' fill='%2335E08C'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared Design System v1.1 -->
+  <link rel="stylesheet" href="./assets/ds.css">
+  <script src="./assets/ds.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="ds-skip-link" data-i18n="skipToMain">Skip to main content</a>
+
+  <!-- Circular Language Transition Curtain -->
+  <div class="ds-curtain" id="ds-curtain" aria-hidden="true">
+    <div class="ds-curtain-layer ds-curtain-outer" id="ds-curtain-outer"></div>
+    <div class="ds-curtain-layer ds-curtain-inner" id="ds-curtain-inner">
+      <span class="ds-curtain-sub" id="ds-curtain-sub">SWITCHING LANGUAGE</span>
+      <span class="ds-curtain-label" id="ds-curtain-label">DESKTOP TOOLS</span>
+    </div>
+  </div>
+
+  <!-- Site Header -->
+  <header class="ds-header">
+    <a href="./" class="ds-brand">
+      <span class="ds-brand-mark" aria-hidden="true"></span>
+      <span data-i18n="brandName">Esam Haraz</span>
+    </a>
+
+    <nav class="ds-mini-graph" id="ds-mini-graph" aria-label="Sites network navigation">
+      <a href="https://esam-haraz.github.io/hub/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Services Hub</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="./" class="ds-mini-node is-current" aria-current="page">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Desktop Tools</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="https://esam-haraz.github.io/Data-Analysis/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Data Analysis</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="https://esam-haraz.github.io/portfolio/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Portfolio</span>
+      </a>
+    </nav>
+
+    <div class="ds-nav-dropdown" id="ds-nav-dropdown">
+      <button type="button"
+              class="ds-nav-dropdown-btn"
+              id="ds-nav-dropdown-btn"
+              aria-expanded="false"
+              aria-controls="ds-nav-dropdown-menu">
+        Tools ▾
+      </button>
+      <div class="ds-nav-dropdown-menu" id="ds-nav-dropdown-menu" role="menu">
+        <a href="https://esam-haraz.github.io/hub/" role="menuitem">Services Hub ↗</a>
+        <a href="./" class="is-current" aria-current="page" role="menuitem">Desktop Tools ●</a>
+        <a href="https://esam-haraz.github.io/Data-Analysis/" role="menuitem">Data Analysis ↗</a>
+        <a href="https://esam-haraz.github.io/portfolio/" role="menuitem">Portfolio ↗</a>
+      </div>
+    </div>
+
+    <div class="ds-header-controls">
+      <button type="button" class="ds-icon-btn" id="ds-theme-toggle" aria-pressed="false" aria-label="Switch to dark mode">
+        <span data-theme-label>Dark</span>
+      </button>
+      <button type="button" class="ds-icon-btn" id="ds-lang-toggle" aria-label="التبديل إلى اللغة العربية">
+        عربي
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" class="ds-container">
+    <section class="ds-section" style="border-block-end:none;" aria-labelledby="err-title">
+      <div class="ds-node">
+        <div class="ds-node-header">
+          <span>[HTTP 404 // ROUTE NOT FOUND]</span>
+          <span>DESKTOP TOOLS</span>
+        </div>
+        <div class="ds-node-body" style="display:flex;flex-direction:column;gap:var(--space-4);">
+          <h1 id="err-title" style="font-size:var(--text-hero);line-height:1.15;" data-i18n="errTitle">
+            Page not found (404)
+          </h1>
+          <p class="ds-section-desc" data-i18n="errDesc">
+            The requested page does not exist in Desktop Tools. You can return to the main tools hub or inspect AutoDeploy directly.
+          </p>
+          <div class="ds-chips-row">
+            <a href="./" class="ds-btn ds-btn-primary" data-i18n="btnHome">← Back to Desktop Tools</a>
+            <a href="https://esam-haraz.github.io/AutoDeploy/" class="ds-btn ds-btn-secondary">AutoDeploy ↗</a>
+            <a href="https://esam-haraz.github.io/hub/" class="ds-btn ds-btn-secondary" data-i18n="btnHub">Services Hub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ds-footer">
+    <div class="ds-container">
+      <div class="ds-footer-bottom" style="padding-block-start:0;border-block-start:none;">
+        <span data-i18n="copyright">© 2026 Esam Haraz.</span>
+        <a href="https://esam-haraz.github.io/hub/#contact" data-contact-cta>esamv20@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.PAGE_I18N = {
+      en: {
+        skipToMain: "Skip to main content",
+        brandName: "Esam Haraz",
+        errTitle: "Page not found (404)",
+        errDesc: "The requested page does not exist in Desktop Tools. You can return to the main tools hub or inspect AutoDeploy directly.",
+        btnHome: "← Back to Desktop Tools",
+        btnHub: "Services Hub ↗",
+        copyright: "© 2026 Esam Haraz."
+      },
+      ar: {
+        skipToMain: "تخطي إلى المحتوى الرئيسي",
+        brandName: "عصام حراز",
+        errTitle: "الصفحة غير موجودة (404)",
+        errDesc: "المسار المطلوب غير موجود في قسم أدوات سطح المكتب. يمكنك العودة إلى الصفحة الرئيسية للأدوات أو استعراض AutoDeploy مباشرة.",
+        btnHome: "→ العودة إلى أدوات سطح المكتب",
+        btnHub: "المركز الرئيسي ↗",
+        copyright: "© 2026 عصام حراز."
+      }
+    };
+  </script>
+</body>
+</html>
