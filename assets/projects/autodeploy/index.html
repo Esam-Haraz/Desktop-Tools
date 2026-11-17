@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="light" data-site="desktop-tools" class="no-js">
+<html lang="en" dir="ltr" data-theme="light" data-site="autodeploy" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +7,15 @@
   <!-- Developer Configuration Block -->
   <script>
     window.SITE_CONFIG = {
+      baseUrl: "https://esam-haraz.github.io/Desktop-Tools/",
       currentSiteId: "desktop-tools",
-      siteDeployUrl: "https://Esam-Haraz.github.io/Desktop-Tools/",
-      hubContactUrl: "https://Esam-Haraz.github.io/hub/#contact",
+      siteDeployUrl: "https://esam-haraz.github.io/Desktop-Tools/",
+      hubContactUrl: "https://esam-haraz.github.io/hub/#contact",
       sitesGraph: [
-        { id: "hub",           labelEn: "Services Hub",  labelAr: "المركز الرئيسي",   url: "https://Esam-Haraz.github.io/hub/" },
-        { id: "desktop-tools", labelEn: "Desktop Tools", labelAr: "أدوات سطح المكتب", url: "./" },
-        { id: "data",          labelEn: "Data Analysis", labelAr: "تحليل البيانات",   url: "https://Esam-Haraz.github.io/Data-Analysis/" },
-        { id: "portfolio",     labelEn: "Portfolio",     labelAr: "معرض الأعمال",     url: "https://Esam-Haraz.github.io/portfolio/" }
+        { id: "hub",           labelEn: "Services Hub",  labelAr: "المركز الرئيسي",   url: "https://esam-haraz.github.io/hub/" },
+        { id: "desktop-tools", labelEn: "Desktop Tools", labelAr: "أدوات سطح المكتب", url: "../../../" },
+        { id: "data",          labelEn: "Data Analysis", labelAr: "تحليل البيانات",   url: "https://esam-haraz.github.io/Data-Analysis/" },
+        { id: "portfolio",     labelEn: "Portfolio",     labelAr: "معرض الأعمال",     url: "https://esam-haraz.github.io/portfolio/" }
       ],
       githubRepoUrl: "https://github.com/Esam-Haraz/AutoDeploy",
       githubIssuesUrl: "https://github.com/Esam-Haraz/AutoDeploy/issues",
@@ -26,25 +27,25 @@
   </script>
 
   <!-- Primary SEO, Canonical & Open Graph Meta Tags -->
-  <title>Desktop Tools (AutoDeploy) — Automated Windows Software Deployment &amp; OS Setup Tool</title>
+  <title>AutoDeploy — Automated Windows Software Deployment &amp; OS Setup Tool</title>
   <meta name="description" content="Standalone, zero-dependency Windows post-format deployment utility by Esam Haraz. Automates silent &amp; custom setups, AppData config backups, winget updates, and shortcut restoration.">
   <meta name="author" content="Esam Haraz">
-  <link rel="canonical" href="https://Esam-Haraz.github.io/Desktop-Tools/">
+  <link rel="canonical" href="https://esam-haraz.github.io/Desktop-Tools/assets/projects/autodeploy/">
 
   <!-- Open Graph / Social Preview -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ar_EG">
-  <meta property="og:title" content="Desktop Tools — One-Click Windows Post-Format Automation">
+  <meta property="og:title" content="AutoDeploy — One-Click Windows Post-Format Automation">
   <meta property="og:description" content="Automate silent &amp; custom installations, post-install file/script chaining, portable OS config snapshots, and desktop shortcut sync in one click.">
-  <meta property="og:url" content="https://Esam-Haraz.github.io/Desktop-Tools/">
-  <meta property="og:image" content="https://Esam-Haraz.github.io/Desktop-Tools/assets/og-cover.png?v=2">
+  <meta property="og:url" content="https://esam-haraz.github.io/Desktop-Tools/assets/projects/autodeploy/">
+  <meta property="og:image" content="https://esam-haraz.github.io/Desktop-Tools/assets/projects/autodeploy/og-cover.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Desktop Tools — One-Click Windows Post-Format Automation">
+  <meta name="twitter:title" content="AutoDeploy — One-Click Windows Post-Format Automation">
   <meta name="twitter:description" content="Automate silent &amp; custom installations, post-install file/script chaining, portable OS config snapshots, and desktop shortcut sync in one click.">
-  <meta name="twitter:image" content="https://Esam-Haraz.github.io/Desktop-Tools/assets/og-cover.png?v=2">
+  <meta name="twitter:image" content="https://esam-haraz.github.io/Desktop-Tools/assets/projects/autodeploy/og-cover.png?v=2">
 
   <!-- Custom Technical Pipeline SVG Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%230D1F1A' stroke='%2335E08C' stroke-width='4'/%3E%3Crect x='16' y='42' width='32' height='7' rx='3.5' fill='%2335E08C'/%3E%3Cpath d='M28 14 H36 V27 H43 L32 38 L21 27 H28 Z' fill='%23F3F6F4'/%3E%3C/svg%3E">
@@ -54,9 +55,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Shared Design System v1.1 + Desktop Tools Engine -->
-  <link rel="stylesheet" href="./assets/ds.css">
-  <script src="./assets/ds.js" defer></script>
+  <!-- Shared Design System v1.1 + AutoDeploy Engine -->
+  <link rel="stylesheet" href="./ds.css">
+  <script src="./ds.js" defer></script>
 </head>
 <body>
 
@@ -66,7 +67,7 @@
   <!-- Circular Language Wipe Curtain (Motion 4: wipe) -->
   <div class="ds-curtain" id="ds-lang-curtain" aria-hidden="true">
     <span class="ds-curtain-badge" id="ds-curtain-sub">SWITCHING TO ENGLISH (LTR)</span>
-    <span class="ds-curtain-title" id="ds-curtain-label">Desktop Tools</span>
+    <span class="ds-curtain-title" id="ds-curtain-label">AutoDeploy</span>
   </div>
 
   <!-- Toast Notification -->
@@ -78,28 +79,28 @@
   <header class="ds-header">
     <a href="#hero-section" class="ds-brand">
       <span class="ds-brand-mark" aria-hidden="true"></span>
-      <span>Desktop Tools</span>
-      <span class="ds-brand-ver" id="nav-ver-badge">AutoDeploy v1.2.0</span>
+      <span>AutoDeploy</span>
+      <span class="ds-brand-ver" id="nav-ver-badge">v1.2.0</span>
     </a>
 
     <!-- Desktop & Tablet (>= 480px) Mini Node-Graph Navigation -->
     <nav class="ds-mini-graph" id="ds-mini-graph" aria-label="Sites network navigation">
-      <a href="https://Esam-Haraz.github.io/hub/" class="ds-mini-node">
+      <a href="https://esam-haraz.github.io/hub/" class="ds-mini-node">
         <span class="ds-mini-dot" aria-hidden="true"></span>
         <span>Services Hub</span>
       </a>
       <span class="ds-mini-edge" aria-hidden="true"></span>
-      <a href="./" class="ds-mini-node is-current" aria-current="page">
+      <a href="../../../" class="ds-mini-node is-current" aria-current="page">
         <span class="ds-mini-dot" aria-hidden="true"></span>
         <span>Desktop Tools</span>
       </a>
       <span class="ds-mini-edge" aria-hidden="true"></span>
-      <a href="https://Esam-Haraz.github.io/Data-Analysis/" class="ds-mini-node">
+      <a href="https://esam-haraz.github.io/Data-Analysis/" class="ds-mini-node">
         <span class="ds-mini-dot" aria-hidden="true"></span>
         <span>Data Analysis</span>
       </a>
       <span class="ds-mini-edge" aria-hidden="true"></span>
-      <a href="https://Esam-Haraz.github.io/portfolio/" class="ds-mini-node">
+      <a href="https://esam-haraz.github.io/portfolio/" class="ds-mini-node">
         <span class="ds-mini-dot" aria-hidden="true"></span>
         <span>Portfolio</span>
       </a>
@@ -115,10 +116,10 @@
         Tools ▾
       </button>
       <div class="ds-nav-dropdown-menu" id="ds-nav-dropdown-menu" role="menu">
-        <a href="https://Esam-Haraz.github.io/hub/" role="menuitem">Services Hub ↗</a>
-        <a href="./" class="is-current" aria-current="page" role="menuitem">Desktop Tools ●</a>
-        <a href="https://Esam-Haraz.github.io/Data-Analysis/" role="menuitem">Data Analysis ↗</a>
-        <a href="https://Esam-Haraz.github.io/portfolio/" role="menuitem">Portfolio ↗</a>
+        <a href="https://esam-haraz.github.io/hub/" role="menuitem">Services Hub ↗</a>
+        <a href="../../../" class="is-current" aria-current="page" role="menuitem">Desktop Tools ●</a>
+        <a href="https://esam-haraz.github.io/Data-Analysis/" role="menuitem">Data Analysis ↗</a>
+        <a href="https://esam-haraz.github.io/portfolio/" role="menuitem">Portfolio ↗</a>
       </div>
     </div>
 
@@ -150,18 +151,22 @@
   </aside>
 
   <!-- ==========================================================================
-       MAIN CONTENT
+       MAIN CONTENT (All English Content Pre-Rendered in HTML for SEO & No-JS)
        ========================================================================== -->
   <main id="main-content" class="ds-container">
 
-    <!-- STATION 00: HERO SECTION -->
+    <!-- ========================================================================
+         STATION 00: HERO SECTION, DOWNLOAD MANIFEST & LIVE SIMULATOR
+         ======================================================================== -->
     <section class="ds-section" id="hero-section" style="padding-block-start: var(--space-3);">
+      <!-- Orchestrated Entry SVG Connector -->
       <svg class="hero-connector-svg" viewBox="0 0 1000 38" preserveAspectRatio="none" aria-hidden="true">
         <path class="hero-connect-track" d="M 450 0 L 450 18 L 750 18 L 750 38" />
         <path class="hero-connect-active" id="hero-entry-line" d="M 450 0 L 450 18 L 750 18 L 750 38" />
       </svg>
 
       <div class="hero-split">
+        <!-- Left Column: Hero Copy + Compact Download Manifest -->
         <div>
           <div class="ds-station-index">
             <span class="ds-station-num">00</span>
@@ -218,7 +223,7 @@
           </div>
         </div>
 
-        <!-- Simulator Chassis -->
+        <!-- Right Column: High-Contrast Dark Simulator Chassis -->
         <div>
           <div class="sim-chassis" aria-label="Interactive AutoDeploy Application Simulator">
             <span class="ds-port is-active ds-port-center-top" title="Pipeline Input Port"></span>
@@ -238,6 +243,7 @@
               <a href="#contact-section" class="sim-step-btn has-steps">Contact &amp; Support</a>
             </div>
 
+            <!-- Simulator Segmented Tabs -->
             <div class="sim-tabs" role="tablist" id="sim-tabs-bar" style="--active-tab: 0;">
               <span class="sim-tab-indicator" aria-hidden="true"></span>
               <button type="button" class="sim-tab-btn is-active" id="sim-tab-0" role="tab" aria-selected="true" onclick="switchSimTab(0)">1. Silent Setup</button>
@@ -249,6 +255,7 @@
               <span id="sim-top-hint">Saved in 'AutoDeploy Silent Queue.txt'. Universal silent detector + Desktop shortcut sync.</span>
             </div>
 
+            <!-- Pre-populated default stage for No-JS & instant LCP -->
             <div class="sim-stage" id="sim-stage">
               <div class="sim-row is-active-row">
                 <button type="button" class="ds-checkbox sim-q-check is-checked" aria-label="Toggle Revo Uninstaller Pro">
@@ -329,7 +336,9 @@
       </div>
     </section>
 
-    <!-- STATION 01: DUAL-PHASE QUEUE ARCHITECTURE -->
+    <!-- ========================================================================
+         STATION 01: DUAL-PHASE QUEUE ARCHITECTURE
+         ======================================================================== -->
     <section class="ds-section" id="queues-section">
       <div class="ds-section-header">
         <div class="ds-station-index">
@@ -343,6 +352,7 @@
       </div>
 
       <div class="queues-grid">
+        <!-- Phase 1: Silent Setup -->
         <article class="ds-node">
           <span class="ds-port is-active ds-port-top"></span>
           <div class="ds-node-header">
@@ -358,19 +368,27 @@
             </p>
             <ul class="queue-list">
               <li>
-                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span class="queue-tick-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
                 <span data-i18n="q1Pt1">Inspects binary signatures for Inno Setup, NSIS, WiX Burn, Squirrel, Omaha, InstallShield, and 7z SFX.</span>
               </li>
               <li>
-                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span class="queue-tick-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
                 <span data-i18n="q1Pt2">Extracts case-sensitive switches directly from embedded help tables (e.g., FastCopy, Java, DirectX).</span>
               </li>
               <li>
-                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span class="queue-tick-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
                 <span data-i18n="q1Pt3">Automatically quotes paths and bypasses 'pause' commands in .bat and .cmd scripts.</span>
               </li>
               <li>
-                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span class="queue-tick-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
                 <span data-i18n="q1Pt4">Restores missing Desktop shortcuts from Start Menu after silent installation.</span>
               </li>
             </ul>
@@ -378,6 +396,7 @@
           <span class="ds-port is-active ds-port-bottom"></span>
         </article>
 
+        <!-- Phase 2: Custom Setup -->
         <article class="ds-node">
           <span class="ds-port is-active ds-port-top"></span>
           <div class="ds-node-header">
@@ -393,19 +412,27 @@
             </p>
             <ul class="queue-list">
               <li>
-                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span class="queue-tick-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
                 <span data-i18n="q2Pt1">Ideal for heavy IDEs, compilers, or tools where you change the target drive (e.g., D:\) or pick custom checkboxes (Git, Python, VS Code).</span>
               </li>
               <li>
-                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span class="queue-tick-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
                 <span data-i18n="q2Pt2">Pauses the queue patiently until you finish and close the installer window.</span>
               </li>
               <li>
-                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span class="queue-tick-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
                 <span data-i18n="q2Pt3">Immediately executes any configured Post-Install Additional Steps once the setup window closes.</span>
               </li>
               <li>
-                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span class="queue-tick-icon" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
                 <span data-i18n="q2Pt4">Smart Queue Move: Dragging an item from Silent to Custom preserves all of its configured Additional Steps.</span>
               </li>
             </ul>
@@ -415,7 +442,9 @@
       </div>
     </section>
 
-    <!-- STATION 02: ADDITIONAL STEPS -->
+    <!-- ========================================================================
+         STATION 02: INTERACTIVE ADDITIONAL STEPS (All 4 Modes in HTML DOM)
+         ======================================================================== -->
     <section class="ds-section" id="steps-section">
       <div class="ds-section-header">
         <div class="ds-station-index">
@@ -441,6 +470,7 @@
         </div>
 
         <div class="ds-node-body">
+          <!-- Mode 1 Panel -->
           <div class="step-mode-panel is-active" id="step-panel-0" role="tabpanel">
             <div>
               <span class="ds-mono" style="font-size:0.74rem;color:var(--ink-muted);" data-i18n="s1Badge">MODE 1 • MULTI-SOURCE / MULTI-DESTINATION COPY</span>
@@ -475,6 +505,7 @@
             </div>
           </div>
 
+          <!-- Mode 2 Panel -->
           <div class="step-mode-panel" id="step-panel-1" role="tabpanel">
             <div>
               <span class="ds-mono" style="font-size:0.74rem;color:var(--ink-muted);" data-i18n="s2Badge">MODE 2 • SAFE MULTI-DESTINATION MOVE</span>
@@ -509,6 +540,7 @@
             </div>
           </div>
 
+          <!-- Mode 3 Panel -->
           <div class="step-mode-panel" id="step-panel-2" role="tabpanel">
             <div>
               <span class="ds-mono" style="font-size:0.74rem;color:var(--ink-muted);" data-i18n="s3Badge">MODE 3 • SEQUENTIAL PROCESS CHAINING</span>
@@ -543,6 +575,7 @@
             </div>
           </div>
 
+          <!-- Mode 4 Panel -->
           <div class="step-mode-panel" id="step-panel-3" role="tabpanel">
             <div>
               <span class="ds-mono" style="font-size:0.74rem;color:var(--ink-muted);" data-i18n="s4Badge">MODE 4 • PORTABLE OS CONFIGURATION SNAPSHOT</span>
@@ -577,6 +610,7 @@
             </div>
           </div>
 
+          <!-- Pipeline Mode Progress Indicator -->
           <div style="margin-block-start:var(--space-4);display:flex;align-items:center;gap:0.75rem;">
             <span class="ds-mono" style="font-size:0.72rem;color:var(--ink-muted);white-space:nowrap;" id="step-mode-counter">MODE 1 / 4</span>
             <div class="ds-progress" id="step-mode-bar" style="--progress: 0.25;">
@@ -588,7 +622,9 @@
       </div>
     </section>
 
-    <!-- STATION 03: 8 REAL-WORLD OS CHALLENGES -->
+    <!-- ========================================================================
+         STATION 03: 8 REAL-WORLD OS CHALLENGES (FAULT -> PATCH MATRIX)
+         ======================================================================== -->
     <section class="ds-section" id="challenges-section">
       <div class="ds-section-header">
         <div class="ds-station-index">
@@ -602,6 +638,7 @@
       </div>
 
       <div class="matrix-grid">
+        <!-- Challenge 01 -->
         <article class="matrix-card" onclick="pulseMatrixArrow(this)">
           <div class="matrix-head">
             <h3 class="matrix-title" data-i18n="ch1Title">#01 — Drag &amp; Drop Blocked into Elevated Window</h3>
@@ -622,6 +659,7 @@
           </div>
         </article>
 
+        <!-- Challenge 02 -->
         <article class="matrix-card" onclick="pulseMatrixArrow(this)">
           <div class="matrix-head">
             <h3 class="matrix-title" data-i18n="ch2Title">#02 — SSL: CERTIFICATE_VERIFY_FAILED on Fresh OS</h3>
@@ -642,6 +680,7 @@
           </div>
         </article>
 
+        <!-- Challenge 03 -->
         <article class="matrix-card" onclick="pulseMatrixArrow(this)">
           <div class="matrix-head">
             <h3 class="matrix-title" data-i18n="ch3Title">#03 — False-Positive [SKIPPED] Detections</h3>
@@ -662,6 +701,7 @@
           </div>
         </article>
 
+        <!-- Challenge 04 -->
         <article class="matrix-card" onclick="pulseMatrixArrow(this)">
           <div class="matrix-head">
             <h3 class="matrix-title" data-i18n="ch4Title">#04 — Batch Files (.bat) Failing with Code 1 or Hanging</h3>
@@ -682,6 +722,7 @@
           </div>
         </article>
 
+        <!-- Challenge 05 -->
         <article class="matrix-card" onclick="pulseMatrixArrow(this)">
           <div class="matrix-head">
             <h3 class="matrix-title" data-i18n="ch5Title">#05 — Installers Rejecting '/S' (Java &amp; FastCopy)</h3>
@@ -702,6 +743,7 @@
           </div>
         </article>
 
+        <!-- Challenge 06 -->
         <article class="matrix-card" onclick="pulseMatrixArrow(this)">
           <div class="matrix-head">
             <h3 class="matrix-title" data-i18n="ch6Title">#06 — Missing Desktop Shortcuts After Silent Setup</h3>
@@ -722,6 +764,7 @@
           </div>
         </article>
 
+        <!-- Challenge 07 -->
         <article class="matrix-card" onclick="pulseMatrixArrow(this)">
           <div class="matrix-head">
             <h3 class="matrix-title" data-i18n="ch7Title">#07 — Hidden System Folders (ProgramData) Turning Visible</h3>
@@ -742,6 +785,7 @@
           </div>
         </article>
 
+        <!-- Challenge 08 -->
         <article class="matrix-card" onclick="pulseMatrixArrow(this)">
           <div class="matrix-head">
             <h3 class="matrix-title" data-i18n="ch8Title">#08 — App Failing to Open on Bare-Metal Windows</h3>
@@ -764,7 +808,9 @@
       </div>
     </section>
 
-    <!-- STATION 04: RELEASE CHANGELOG -->
+    <!-- ========================================================================
+         STATION 04: RELEASE CHANGELOG & LIVE GITHUB API FEED
+         ======================================================================== -->
     <section class="ds-section" id="changelog-section" style="border-block-end:none;">
       <div class="changelog-header-row">
         <div class="ds-section-header">
@@ -784,6 +830,7 @@
       </div>
 
       <div class="changelog-grid">
+        <!-- Category 1 -->
         <article class="ds-node">
           <span class="ds-port is-active ds-port-top"></span>
           <div class="ds-node-header">
@@ -811,6 +858,7 @@
           </div>
         </article>
 
+        <!-- Category 2 -->
         <article class="ds-node">
           <span class="ds-port is-active ds-port-top"></span>
           <div class="ds-node-header">
@@ -850,6 +898,7 @@
           </div>
         </article>
 
+        <!-- Category 3 -->
         <article class="ds-node">
           <span class="ds-port is-active ds-port-top"></span>
           <div class="ds-node-header">
@@ -881,11 +930,14 @@
 
   </main>
 
-  <!-- STATION 05: FOOTER & CONTACT -->
+  <!-- ==========================================================================
+       STATION 05: SHARED FOOTER, CUSTOM SERVICES PITCH & MINIMAL CONTACT ROUTER
+       ========================================================================== -->
   <footer class="ds-footer" id="contact-section">
     <div class="ds-container">
       <div class="ds-footer-grid">
 
+        <!-- Custom Automation Services Pitch Node -->
         <div class="ds-node">
           <div class="ds-node-header">
             <span>[NODE 05A // CUSTOM DEVELOPMENT]</span>
@@ -912,6 +964,7 @@
           </div>
         </div>
 
+        <!-- Minimal Contact Routing Node -->
         <div class="ds-node">
           <div class="ds-node-header">
             <span>[NODE 05B // CONTACT &amp; BUG REPORTS]</span>
@@ -926,7 +979,7 @@
             </p>
 
             <div class="contact-routes-list" id="contact-routes-list">
-              <a href="https://Esam-Haraz.github.io/hub/#contact" class="contact-route-link is-hub-primary" id="link-hub-contact">
+              <a href="https://esam-haraz.github.io/hub/#contact" class="contact-route-link is-hub-primary" id="link-hub-contact">
                 <span data-i18n="lblHubContact">Main Services Hub — Hire / Contact Me</span>
                 <span class="ds-mono">HUB ↗</span>
               </a>
@@ -948,7 +1001,7 @@
 
       <div class="ds-copyright-bar">
         <span data-i18n="footerCopy">Copyright © 2026 Esam Haraz. All rights reserved.</span>
-        <span class="ds-mono">Design System v1.1 (Pipeline) • Desktop Tools • AutoDeploy • Python • PyQt6</span>
+        <span class="ds-mono">Design System v1.1 (Pipeline) • AutoDeploy • Python • PyQt6 • Win32 API</span>
       </div>
     </div>
   </footer>
