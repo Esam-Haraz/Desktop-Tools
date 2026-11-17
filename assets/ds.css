@@ -1,7 +1,7 @@
 /* ============================================================================
    DESIGN SYSTEM v1.1 — SHARED PIPELINE ARCHITECTURE
    Author: Esam Haraz
-   Path: Data-Analysis/assets/projects/ds.css
+   Path: Desktop-Tools/assets/ds.css
    ============================================================================ */
 
 /* ----------------------------------------------------------------------------
@@ -87,6 +87,7 @@
 }
 
 /* Per-Site Accent & Line Overrides (Light Mode) */
+[data-site="deploy"],
 [data-site="autodeploy"] {
   --site-accent: var(--accent-deploy);
   --accent-line: #0B8A4C;
@@ -150,6 +151,7 @@ body {
   color: var(--ink);
   line-height: 1.65;
   min-height: 100dvh;
+  padding-block-start: var(--header-h);
   overflow-x: hidden;
   max-inline-size: 100%;
   -webkit-font-smoothing: antialiased;
@@ -236,20 +238,39 @@ img, svg {
 }
 
 /* ----------------------------------------------------------------------------
-   3. SITE HEADER, MINI NODE-GRAPH NAV & MOBILE (<480px) DROPDOWN
+   3. FIXED GLASS SITE HEADER, MINI NODE-GRAPH NAV & MOBILE (<480px) DROPDOWN
    ---------------------------------------------------------------------------- */
 .ds-header {
-  position: sticky;
+  position: fixed;
   inset-block-start: 0;
+  inset-inline: 0;
   z-index: 900;
   block-size: var(--header-h);
-  background-color: var(--bg-paper);
+  background-color: rgba(243, 246, 244, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-block-end: 1px solid var(--rule);
   padding-inline: clamp(1rem, 4vw, 2.5rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
+  transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+[data-theme="dark"] .ds-header {
+  background-color: rgba(11, 20, 17, 0.8);
+}
+
+.ds-header.is-scrolled {
+  background-color: rgba(243, 246, 244, 0.88);
+  border-block-end-color: var(--rule-strong);
+  box-shadow: 0 6px 24px rgba(13, 31, 26, 0.08);
+}
+
+[data-theme="dark"] .ds-header.is-scrolled {
+  background-color: rgba(11, 20, 17, 0.88);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
 }
 
 .ds-brand {
@@ -447,7 +468,7 @@ img, svg {
   inset-inline: 0;
   block-size: 3px;
   background-color: var(--rule);
-  z-index: 890;
+  z-index: 895;
   pointer-events: none;
 }
 
@@ -804,7 +825,7 @@ img, svg {
 }
 
 /* ----------------------------------------------------------------------------
-   8. SPIDER / RADIAL NETWORK GRAPH (HOME PAGE)
+   8. SPIDER / RADIAL NETWORK GRAPH (HOME PAGE + INTERACTIVE RINGS)
    ---------------------------------------------------------------------------- */
 .ds-spider-wrap {
   position: relative;
@@ -934,7 +955,18 @@ img, svg {
   }
 }
 
-/* Desktop Radial Layout over Concentric SVG Rings */
+/* Animated Orbit Keyframes for Concentric Rings */
+@keyframes dsRingOrbitCw {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -120; }
+}
+
+@keyframes dsRingOrbitCcw {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 120; }
+}
+
+/* Desktop Radial Layout over Concentric Animated SVG Rings */
 @media (min-width: 900px) {
   .ds-spider-canvas {
     display: grid;
@@ -954,14 +986,35 @@ img, svg {
     block-size: 100%;
     z-index: 3;
     pointer-events: none;
+    overflow: visible;
   }
 
   .ds-spider-ring {
     fill: none;
     stroke: var(--rule-strong);
-    stroke-width: 1.35;
-    stroke-dasharray: 5 5;
+    stroke-width: 1.4;
+    stroke-dasharray: 6 6;
     opacity: 0.72;
+    will-change: transform;
+    transition: stroke 260ms ease, opacity 260ms ease, stroke-width 260ms ease;
+    animation: dsRingOrbitCw 18s linear infinite;
+  }
+
+  .ds-spider-ring:nth-of-type(2) {
+    stroke-dasharray: 8 6;
+    animation-name: dsRingOrbitCcw;
+    animation-duration: 24s;
+  }
+
+  .ds-spider-ring:nth-of-type(3) {
+    stroke-dasharray: 4 8;
+    animation-duration: 32s;
+  }
+
+  .ds-spider-svg.is-interactive .ds-spider-ring {
+    stroke: var(--accent-line);
+    opacity: 0.85;
+    stroke-width: 1.75;
   }
 
   .ds-spider-edge-base {
