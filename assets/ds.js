@@ -1,7 +1,7 @@
 /* ============================================================================
    DESIGN SYSTEM v1.1 — SHARED PIPELINE ENGINE (VANILLA JS, ZERO DEPENDENCIES)
    Author: Esam Haraz
-   Path: Data-Analysis/assets/projects/ds.js
+   Path: Desktop-Tools/assets/ds.js
    ============================================================================ */
 
 (function () {
@@ -11,15 +11,15 @@
      1. CONFIGURATION & ENVIRONMENT DETECTION
      -------------------------------------------------------------------------- */
   const DEFAULT_CONFIG = {
-    baseUrl: "https://esam-haraz.github.io/Data-Analysis/",
-    currentSiteId: "data",
+    baseUrl: "https://esam-haraz.github.io/Desktop-Tools/",
+    currentSiteId: "desktop-tools",
     sitesGraph: [
-      { id: "hub", labelEn: "Services Hub", labelAr: "المركز الرئيسي", url: "https://esam-haraz.github.io/hub/" },
-      { id: "autodeploy", labelEn: "AutoDeploy", labelAr: "AutoDeploy", url: "https://esam-haraz.github.io/AutoDeploy/" },
-      { id: "data", labelEn: "Data Analysis", labelAr: "تحليل البيانات", url: "./" },
-      { id: "portfolio", labelEn: "Portfolio", labelAr: "معرض الأعمال", url: "https://esam-haraz.github.io/portfolio/" }
+      { id: "hub",           labelEn: "Services Hub",  labelAr: "المركز الرئيسي",   url: "https://esam-haraz.github.io/hub/" },
+      { id: "desktop-tools", labelEn: "Desktop Tools", labelAr: "أدوات سطح المكتب", url: "./" },
+      { id: "data",          labelEn: "Data Analysis", labelAr: "تحليل البيانات",   url: "https://esam-haraz.github.io/Data-Analysis/" },
+      { id: "portfolio",     labelEn: "Portfolio",     labelAr: "معرض الأعمال",     url: "https://esam-haraz.github.io/portfolio/" }
     ],
-    hubContactUrl: "mailto:esamv20@gmail.com",
+    hubContactUrl: "https://esam-haraz.github.io/hub/#contact",
     email: "esamv20@gmail.com",
     linkedinUrl: "https://www.linkedin.com/in/esam-haraz-459925402"
   };
@@ -29,7 +29,7 @@
 
   const STORAGE_LANG_KEY = "esam_ds_lang_v1";
   const STORAGE_THEME_KEY = "esam_ds_theme_v1";
-  const SESSION_INTRO_KEY = "esam_data_spider_intro_v1";
+  const SESSION_INTRO_KEY = "esam_deploy_spider_intro_v1";
 
   let currentLang = "en";
   let currentTheme = "light";
@@ -136,8 +136,8 @@
 
     if (dropdownBtn && dropdownMenu) {
       const currentSite = CFG.sitesGraph.find((s) => s.id === CFG.currentSiteId);
-      const shortLabel = currentLang === "ar" ? "بيانات ▾" : "Data ▾";
-      if (currentSite && currentSite.id !== "data") {
+      const shortLabel = currentLang === "ar" ? "أدوات ▾" : "Tools ▾";
+      if (currentSite && currentSite.id !== "desktop-tools") {
         dropdownBtn.textContent = (currentLang === "ar" ? currentSite.labelAr : currentSite.labelEn) + " ▾";
       } else {
         dropdownBtn.textContent = shortLabel;
@@ -285,7 +285,7 @@
     const endX = 100 - startX;
     const endY = 100;
 
-    if (labelEl) labelEl.textContent = nextLang === "ar" ? "تحليل البيانات" : "DATA ANALYSIS";
+    if (labelEl) labelEl.textContent = nextLang === "ar" ? "أدوات سطح المكتب" : "DESKTOP TOOLS";
     if (subEl) subEl.textContent = nextLang === "ar" ? "التحويل إلى العربية (RTL)" : "SWITCHING TO ENGLISH (LTR)";
 
     const dur = 420;
@@ -339,7 +339,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     5. RADIAL SPIDER GRAPH (SVG RINGS + CONNECTORS + PORTS + RTL MIRRORING)
+     5. RADIAL SPIDER GRAPH (ANIMATED RINGS + MOUSE PARALLAX + CONNECTORS)
      -------------------------------------------------------------------------- */
   function ensureSpiderPort(svg, edgeIdx, role) {
     let port = svg.querySelector(`.ds-spider-port[data-edge="${edgeIdx}"][data-port-role="${role}"]`);
@@ -435,6 +435,65 @@
     });
   }
 
+  function setupSpiderRingParallax(canvas, svg) {
+    if (REDUCED_MOTION) return;
+    const rings = Array.from(svg.querySelectorAll(".ds-spider-ring"));
+    if (rings.length === 0) return;
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let rafId = null;
+
+    function renderLoop() {
+      currentX += (targetX - currentX) * 0.085;
+      currentY += (targetY - currentY) * 0.085;
+
+      rings.forEach((ring, idx) => {
+        const depth = (idx + 1) * 11;
+        const tx = (currentX * depth).toFixed(2);
+        const ty = (currentY * depth).toFixed(2);
+        ring.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+      });
+
+      if (Math.abs(targetX - currentX) > 0.001 || Math.abs(targetY - currentY) > 0.001) {
+        rafId = window.requestAnimationFrame(renderLoop);
+      } else {
+        rafId = null;
+      }
+    }
+
+    function scheduleRender() {
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(renderLoop);
+      }
+    }
+
+    const hostSection = canvas.closest(".ds-section") || canvas;
+
+    hostSection.addEventListener("pointermove", (e) => {
+      if (window.innerWidth < 900) return;
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width < 10 || rect.height < 10) return;
+
+      const normX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      const normY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+      targetX = Math.max(-1.25, Math.min(1.25, normX));
+      targetY = Math.max(-1.25, Math.min(1.25, normY));
+
+      svg.classList.add("is-interactive");
+      scheduleRender();
+    }, { passive: true });
+
+    hostSection.addEventListener("pointerleave", () => {
+      targetX = 0;
+      targetY = 0;
+      svg.classList.remove("is-interactive");
+      scheduleRender();
+    }, { passive: true });
+  }
+
   function setupSpiderInteractions() {
     const canvas = document.getElementById("ds-spider-canvas");
     const svg = document.getElementById("ds-spider-svg");
@@ -461,6 +520,8 @@
       branchEl.addEventListener("focus", activate);
       branchEl.addEventListener("blur", deactivate);
     });
+
+    setupSpiderRingParallax(canvas, svg);
 
     let alreadyPlayed = false;
     try {
@@ -515,9 +576,10 @@
   }
 
   /* --------------------------------------------------------------------------
-     6. SCROLL PROGRESS, PROJECT RAIL & STEP-TO-STEP PIPELINE CONNECTORS
+     6. SCROLL PROGRESS, HEADER GLASS STATE, PROJECT RAIL & PIPELINE CONNECTORS
      -------------------------------------------------------------------------- */
   function setupScrollTracking() {
+    const headerEl = document.querySelector(".ds-header");
     const railNodes = Array.from(document.querySelectorAll(".ds-rail-node[data-target]"));
     const railSections = railNodes
       .map((node) => document.getElementById(node.getAttribute("data-target")))
@@ -542,6 +604,10 @@
       const progress = Math.min(Math.max(scrollTop / maxScroll, 0), 1);
 
       docEl.style.setProperty("--scroll-progress", progress.toFixed(4));
+
+      if (headerEl) {
+        headerEl.classList.toggle("is-scrolled", scrollTop > 12);
+      }
 
       if (railSections.length > 0) {
         const triggerY = window.innerHeight * 0.36;
