@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light" data-site="desktop-tools" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Developer Configuration Block -->
+  <script>
+    window.SITE_CONFIG = {
+      currentSiteId: "desktop-tools",
+      siteDeployUrl: "https://Esam-Haraz.github.io/Desktop-Tools/",
+      hubContactUrl: "https://Esam-Haraz.github.io/hub/#contact",
+      sitesGraph: [
+        { id: "hub",           labelEn: "Services Hub",  labelAr: "المركز الرئيسي",   url: "https://Esam-Haraz.github.io/hub/" },
+        { id: "desktop-tools", labelEn: "Desktop Tools", labelAr: "أدوات سطح المكتب", url: "./" },
+        { id: "data",          labelEn: "Data Analysis", labelAr: "تحليل البيانات",   url: "https://Esam-Haraz.github.io/Data-Analysis/" },
+        { id: "portfolio",     labelEn: "Portfolio",     labelAr: "معرض الأعمال",     url: "https://Esam-Haraz.github.io/portfolio/" }
+      ],
+      githubRepoUrl: "https://github.com/Esam-Haraz/AutoDeploy",
+      githubIssuesUrl: "https://github.com/Esam-Haraz/AutoDeploy/issues",
+      githubApiLatestUrl: "https://api.github.com/repos/Esam-Haraz/AutoDeploy/releases/latest",
+      directDownloadUrl: "https://github.com/Esam-Haraz/AutoDeploy/releases/latest/download/AutoDeploy.exe",
+      email: "esamv20@gmail.com",
+      whatsappNumber: "" /* Leave empty "" to hide WhatsApp, or enter e.g. "201000000000" */
+    };
+  </script>
+
+  <!-- Primary SEO, Canonical & Open Graph Meta Tags -->
+  <title>Desktop Tools (AutoDeploy) — Automated Windows Software Deployment &amp; OS Setup Tool</title>
+  <meta name="description" content="Standalone, zero-dependency Windows post-format deployment utility by Esam Haraz. Automates silent &amp; custom setups, AppData config backups, winget updates, and shortcut restoration.">
+  <meta name="author" content="Esam Haraz">
+  <link rel="canonical" href="https://Esam-Haraz.github.io/Desktop-Tools/">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ar_EG">
+  <meta property="og:title" content="Desktop Tools — One-Click Windows Post-Format Automation">
+  <meta property="og:description" content="Automate silent &amp; custom installations, post-install file/script chaining, portable OS config snapshots, and desktop shortcut sync in one click.">
+  <meta property="og:url" content="https://Esam-Haraz.github.io/Desktop-Tools/">
+  <meta property="og:image" content="https://Esam-Haraz.github.io/Desktop-Tools/assets/og-cover.png?v=2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Desktop Tools — One-Click Windows Post-Format Automation">
+  <meta name="twitter:description" content="Automate silent &amp; custom installations, post-install file/script chaining, portable OS config snapshots, and desktop shortcut sync in one click.">
+  <meta name="twitter:image" content="https://Esam-Haraz.github.io/Desktop-Tools/assets/og-cover.png?v=2">
+
+  <!-- Custom Technical Pipeline SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%230D1F1A' stroke='%2335E08C' stroke-width='4'/%3E%3Crect x='16' y='42' width='32' height='7' rx='3.5' fill='%2335E08C'/%3E%3Cpath d='M28 14 H36 V27 H43 L32 38 L21 27 H28 Z' fill='%23F3F6F4'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts (Subset Latin + Arabic, font-display: swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared Design System v1.1 + Desktop Tools Engine -->
+  <link rel="stylesheet" href="./assets/ds.css">
+  <script src="./assets/ds.js" defer></script>
+</head>
+<body>
+
+  <!-- Keyboard Skip Link -->
+  <a href="#main-content" class="ds-skip-link" data-i18n="skipLink">Skip to main content</a>
+
+  <!-- Circular Language Wipe Curtain (Motion 4: wipe) -->
+  <div class="ds-curtain" id="ds-lang-curtain" aria-hidden="true">
+    <span class="ds-curtain-badge" id="ds-curtain-sub">SWITCHING TO ENGLISH (LTR)</span>
+    <span class="ds-curtain-title" id="ds-curtain-label">Desktop Tools</span>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="ds-toast" id="ds-toast" role="status" aria-live="polite"></div>
+
+  <!-- ==========================================================================
+       UNIFIED SITE HEADER
+       ========================================================================== -->
+  <header class="ds-header">
+    <a href="#hero-section" class="ds-brand">
+      <span class="ds-brand-mark" aria-hidden="true"></span>
+      <span>Desktop Tools</span>
+      <span class="ds-brand-ver" id="nav-ver-badge">AutoDeploy v1.2.0</span>
+    </a>
+
+    <!-- Desktop & Tablet (>= 480px) Mini Node-Graph Navigation -->
+    <nav class="ds-mini-graph" id="ds-mini-graph" aria-label="Sites network navigation">
+      <a href="https://Esam-Haraz.github.io/hub/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Services Hub</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="./" class="ds-mini-node is-current" aria-current="page">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Desktop Tools</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="https://Esam-Haraz.github.io/Data-Analysis/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Data Analysis</span>
+      </a>
+      <span class="ds-mini-edge" aria-hidden="true"></span>
+      <a href="https://Esam-Haraz.github.io/portfolio/" class="ds-mini-node">
+        <span class="ds-mini-dot" aria-hidden="true"></span>
+        <span>Portfolio</span>
+      </a>
+    </nav>
+
+    <!-- Mobile (< 480px) Compact Dropdown Switcher -->
+    <div class="ds-nav-dropdown" id="ds-nav-dropdown">
+      <button type="button"
+              class="ds-nav-dropdown-btn"
+              id="ds-nav-dropdown-btn"
+              aria-expanded="false"
+              aria-controls="ds-nav-dropdown-menu">
+        Tools ▾
+      </button>
+      <div class="ds-nav-dropdown-menu" id="ds-nav-dropdown-menu" role="menu">
+        <a href="https://Esam-Haraz.github.io/hub/" role="menuitem">Services Hub ↗</a>
+        <a href="./" class="is-current" aria-current="page" role="menuitem">Desktop Tools ●</a>
+        <a href="https://Esam-Haraz.github.io/Data-Analysis/" role="menuitem">Data Analysis ↗</a>
+        <a href="https://Esam-Haraz.github.io/portfolio/" role="menuitem">Portfolio ↗</a>
+      </div>
+    </div>
+
+    <!-- Unified Theme Toggle (Dark/Light) & Language Switcher (عربي/EN) -->
+    <div class="ds-header-controls">
+      <button type="button" class="ds-icon-btn" id="ds-theme-toggle" onclick="DS.toggleTheme()" aria-pressed="false" aria-label="Switch to dark mode">
+        <span data-theme-label>Dark</span>
+      </button>
+      <button type="button" class="ds-icon-btn" id="ds-lang-toggle" onclick="DS.switchLanguage(this)" aria-label="التبديل إلى اللغة العربية">
+        عربي
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Top Scroll Progress Bar -->
+  <div class="ds-mobile-progress" aria-hidden="true">
+    <div class="ds-mobile-progress-fill"></div>
+  </div>
+
+  <!-- Desktop Vertical Pipeline Scroll Rail -->
+  <aside class="ds-rail" aria-label="Section Pipeline Progress">
+    <div class="ds-rail-track"><div class="ds-rail-fill"></div></div>
+    <a href="#hero-section" class="ds-rail-node is-reached" title="00 Hero &amp; Simulator">00</a>
+    <a href="#queues-section" class="ds-rail-node" title="01 Dual-Phase Queues">01</a>
+    <a href="#steps-section" class="ds-rail-node" title="02 Additional Steps">02</a>
+    <a href="#challenges-section" class="ds-rail-node" title="03 8 OS Challenges">03</a>
+    <a href="#changelog-section" class="ds-rail-node" title="04 Release Changelog">04</a>
+    <a href="#contact-section" class="ds-rail-node" title="05 Services &amp; Contact">05</a>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <main id="main-content" class="ds-container">
+
+    <!-- STATION 00: HERO SECTION -->
+    <section class="ds-section" id="hero-section" style="padding-block-start: var(--space-3);">
+      <svg class="hero-connector-svg" viewBox="0 0 1000 38" preserveAspectRatio="none" aria-hidden="true">
+        <path class="hero-connect-track" d="M 450 0 L 450 18 L 750 18 L 750 38" />
+        <path class="hero-connect-active" id="hero-entry-line" d="M 450 0 L 450 18 L 750 18 L 750 38" />
+      </svg>
+
+      <div class="hero-split">
+        <div>
+          <div class="ds-station-index">
+            <span class="ds-station-num">00</span>
+            <span data-i18n="heroTag">ZERO-DEPENDENCY WINDOWS 10 / 11 UTILITY</span>
+          </div>
+
+          <h1 class="hero-title" data-i18n="heroHeadline">
+            Automate Your Entire Post-Format Setup in <span class="ds-accent-box">One Click.</span>
+          </h1>
+
+          <p class="ds-section-desc" data-i18n="heroSummary">
+            Stop wasting hours clicking "Next" after every Windows format. AutoDeploy combines a universal binary silent-switch detector, multi-destination file/config restoration, AppData OS snapshots, and winget auto-updates inside a standalone executable.
+          </p>
+
+          <!-- Compact Download Manifest Panel -->
+          <div class="download-manifest" aria-label="Download and Verification Panel">
+            <div class="manifest-cta-row">
+              <a href="https://github.com/Esam-Haraz/AutoDeploy/releases/latest/download/AutoDeploy.exe" class="ds-btn ds-btn-primary" id="cta-download">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/>
+                </svg>
+                <span data-i18n="ctaDownload">Download AutoDeploy.exe</span>
+              </a>
+
+              <a href="https://github.com/Esam-Haraz/AutoDeploy" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn-secondary" id="cta-github">
+                <span data-i18n="ctaGithub">View on GitHub ↗</span>
+              </a>
+            </div>
+
+            <div class="manifest-specs-grid">
+              <div><strong data-i18n="lblVersion">VERSION:</strong> <span id="meta-version">v1.2.0</span></div>
+              <div><strong data-i18n="lblSize">SIZE:</strong> <span id="meta-size">~34.7 MB</span></div>
+              <div><strong data-i18n="lblMode">PORTABILITY:</strong> <span data-i18n="valPortable">USB &amp; External Drive Ready</span></div>
+            </div>
+
+            <div class="manifest-sha-row">
+              <div>
+                <strong>SHA-256:</strong>
+                <code class="sha-digest-code" id="meta-sha256" title="Fetched from GitHub Releases API asset digest">Verifying release asset digest...</code>
+              </div>
+              <button type="button" class="ds-chip-btn" onclick="copyReleaseSha()" id="btn-copy-sha">
+                <span data-i18n="btnCopySha">Copy SHA-256</span>
+              </button>
+            </div>
+
+            <div class="smartscreen-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4m0 4h.01"/>
+              </svg>
+              <p data-i18n="smartScreenNote">
+                <strong>Windows SmartScreen Note:</strong> AutoDeploy is an independent open-source binary without a paid commercial EV code-signing certificate. If Windows SmartScreen appears on first launch, click <code>More info</code> then <code>Run anyway</code>. You can verify the binary anytime using the SHA-256 digest above or inspect the source on GitHub.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator Chassis -->
+        <div>
+          <div class="sim-chassis" aria-label="Interactive AutoDeploy Application Simulator">
+            <span class="ds-port is-active ds-port-center-top" title="Pipeline Input Port"></span>
+
+            <div class="sim-titlebar">
+              <div class="sim-title-group">
+                <span class="sim-app-badge" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14"/>
+                  </svg>
+                </span>
+                <div>
+                  <div style="font-weight:700;font-size:0.86rem;line-height:1.1;">AutoDeploy.exe</div>
+                  <div class="ds-mono" style="font-size:0.66rem;color:var(--sim-muted);">Universal Silent Detector • OS Config Snapshot • Auto-Updater</div>
+                </div>
+              </div>
+              <a href="#contact-section" class="sim-step-btn has-steps">Contact &amp; Support</a>
+            </div>
+
+            <div class="sim-tabs" role="tablist" id="sim-tabs-bar" style="--active-tab: 0;">
+              <span class="sim-tab-indicator" aria-hidden="true"></span>
+              <button type="button" class="sim-tab-btn is-active" id="sim-tab-0" role="tab" aria-selected="true" onclick="switchSimTab(0)">1. Silent Setup</button>
+              <button type="button" class="sim-tab-btn" id="sim-tab-1" role="tab" aria-selected="false" onclick="switchSimTab(1)">2. Custom Setup</button>
+              <button type="button" class="sim-tab-btn" id="sim-tab-2" role="tab" aria-selected="false" onclick="switchSimTab(2)">3. Launch &amp; Monitor</button>
+            </div>
+
+            <div class="sim-subbar">
+              <span id="sim-top-hint">Saved in 'AutoDeploy Silent Queue.txt'. Universal silent detector + Desktop shortcut sync.</span>
+            </div>
+
+            <div class="sim-stage" id="sim-stage">
+              <div class="sim-row is-active-row">
+                <button type="button" class="ds-checkbox sim-q-check is-checked" aria-label="Toggle Revo Uninstaller Pro">
+                  <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
+                </button>
+                <span class="sim-ext-tag">EXE</span>
+                <div class="sim-row-info">
+                  <div class="sim-row-title">Revo Uninstaller Pro (v5.4.5)</div>
+                  <div class="sim-row-path">D:\Windows Programs\Silent\RevoUninProSetup.exe</div>
+                </div>
+                <span class="sim-step-btn has-steps">Steps (1)</span>
+              </div>
+
+              <div class="sim-row is-active-row">
+                <button type="button" class="ds-checkbox sim-q-check is-checked" aria-label="Toggle qBittorrent">
+                  <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
+                </button>
+                <span class="sim-ext-tag">EXE</span>
+                <div class="sim-row-info">
+                  <div class="sim-row-title">qBittorrent (v5.1.4)</div>
+                  <div class="sim-row-path">D:\Windows Programs\Silent\qbittorrent_x64_setup.exe</div>
+                </div>
+                <span class="sim-step-btn has-steps">Steps (1)</span>
+              </div>
+
+              <div class="sim-row is-active-row">
+                <button type="button" class="ds-checkbox sim-q-check is-checked" aria-label="Toggle Visual C++ Redistributable">
+                  <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
+                </button>
+                <span class="sim-ext-tag">BAT</span>
+                <div class="sim-row-info">
+                  <div class="sim-row-title">Visual C++ Redistributable All-in-One • [Auto Quote &amp; No-Pause]</div>
+                  <div class="sim-row-path">D:\Windows Programs\Silent\vcredist\install_all.bat</div>
+                </div>
+                <span class="sim-step-btn">Additional Steps</span>
+              </div>
+
+              <div class="sim-row is-active-row">
+                <button type="button" class="ds-checkbox sim-q-check is-checked" aria-label="Toggle FastCopy">
+                  <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
+                </button>
+                <span class="sim-ext-tag">EXE</span>
+                <div class="sim-row-info">
+                  <div class="sim-row-title">FastCopy (v5.8.1) • [Auto Switch: /SILENT]</div>
+                  <div class="sim-row-path">D:\Windows Programs\Silent\FastCopy.exe</div>
+                </div>
+                <span class="sim-step-btn">Additional Steps</span>
+              </div>
+            </div>
+
+            <span class="ds-port is-active ds-port-center-bottom" title="Pipeline Output Port"></span>
+          </div>
+
+          <p class="sim-caption" data-i18n="simCaption">
+            Interactive Live Preview: Click the tabs above, toggle checkboxes, inspect configured steps, or run "3. Launch &amp; Monitor".
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Key Architecture Highlights -->
+      <div class="metrics-grid">
+        <div class="metric-node">
+          <span class="metric-val" data-i18n="m1Val">100% Portable</span>
+          <span class="metric-lbl" data-i18n="m1Lbl">Saves queues in human-readable .txt files ready for any USB or external drive</span>
+        </div>
+        <div class="metric-node">
+          <span class="metric-val" data-i18n="m2Val">Smart Retry</span>
+          <span class="metric-lbl" data-i18n="m2Lbl">Auto-detects silent flags (ASCII/UTF-16LE) with 4.5s fallback retry chain</span>
+        </div>
+        <div class="metric-node">
+          <span class="metric-val" data-i18n="m3Val">OS Snapshot</span>
+          <span class="metric-lbl" data-i18n="m3Lbl">Captures current OS configs and restores via dynamic %APPDATA% variables</span>
+        </div>
+        <div class="metric-node">
+          <span class="metric-val" data-i18n="m4Val">Self-Updating</span>
+          <span class="metric-lbl" data-i18n="m4Lbl">Built-in GitHub updater hot-swaps AutoDeploy.exe in-place with a progress bar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATION 01: DUAL-PHASE QUEUE ARCHITECTURE -->
+    <section class="ds-section" id="queues-section">
+      <div class="ds-section-header">
+        <div class="ds-station-index">
+          <span class="ds-station-num">01</span>
+          <span data-i18n="queuesTag">DUAL-PHASE ARCHITECTURE</span>
+        </div>
+        <h2 class="ds-section-title" data-i18n="queuesTitle">1. Silent Setup vs. 2. Custom Setup</h2>
+        <p class="ds-section-desc" data-i18n="queuesDesc">
+          AutoDeploy divides your software deployment into two sequential phases stored in portable .txt files alongside the executable, giving you 100% unattended speed where you want it and manual control where you need it.
+        </p>
+      </div>
+
+      <div class="queues-grid">
+        <article class="ds-node">
+          <span class="ds-port is-active ds-port-top"></span>
+          <div class="ds-node-header">
+            <span data-i18n="q1Phase">[PHASE 1 // UNATTENDED]</span>
+            <code>AutoDeploy Silent Queue.txt</code>
+          </div>
+          <div class="ds-node-body">
+            <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block-end:0.4rem;" data-i18n="q1Title">
+              1. Silent Setup
+            </h3>
+            <p style="font-size:var(--text-sm);color:var(--ink-muted);" data-i18n="q1Summary">
+              Runs 100% silently in the background with zero pop-ups, wizard windows, or manual 'Next' clicks.
+            </p>
+            <ul class="queue-list">
+              <li>
+                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span data-i18n="q1Pt1">Inspects binary signatures for Inno Setup, NSIS, WiX Burn, Squirrel, Omaha, InstallShield, and 7z SFX.</span>
+              </li>
+              <li>
+                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span data-i18n="q1Pt2">Extracts case-sensitive switches directly from embedded help tables (e.g., FastCopy, Java, DirectX).</span>
+              </li>
+              <li>
+                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span data-i18n="q1Pt3">Automatically quotes paths and bypasses 'pause' commands in .bat and .cmd scripts.</span>
+              </li>
+              <li>
+                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span data-i18n="q1Pt4">Restores missing Desktop shortcuts from Start Menu after silent installation.</span>
+              </li>
+            </ul>
+          </div>
+          <span class="ds-port is-active ds-port-bottom"></span>
+        </article>
+
+        <article class="ds-node">
+          <span class="ds-port is-active ds-port-top"></span>
+          <div class="ds-node-header">
+            <span data-i18n="q2Phase">[PHASE 2 // INTERACTIVE]</span>
+            <code>AutoDeploy Custom Queue.txt</code>
+          </div>
+          <div class="ds-node-body">
+            <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block-end:0.4rem;" data-i18n="q2Title">
+              2. Custom Setup
+            </h3>
+            <p style="font-size:var(--text-sm);color:var(--ink-muted);" data-i18n="q2Summary">
+              Launches the normal interactive installer UI for programs where you want manual control over paths and components.
+            </p>
+            <ul class="queue-list">
+              <li>
+                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span data-i18n="q2Pt1">Ideal for heavy IDEs, compilers, or tools where you change the target drive (e.g., D:\) or pick custom checkboxes (Git, Python, VS Code).</span>
+              </li>
+              <li>
+                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span data-i18n="q2Pt2">Pauses the queue patiently until you finish and close the installer window.</span>
+              </li>
+              <li>
+                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span data-i18n="q2Pt3">Immediately executes any configured Post-Install Additional Steps once the setup window closes.</span>
+              </li>
+              <li>
+                <span class="queue-tick-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+                <span data-i18n="q2Pt4">Smart Queue Move: Dragging an item from Silent to Custom preserves all of its configured Additional Steps.</span>
+              </li>
+            </ul>
+          </div>
+          <span class="ds-port is-active ds-port-bottom"></span>
+        </article>
+      </div>
+    </section>
+
+    <!-- STATION 02: ADDITIONAL STEPS -->
+    <section class="ds-section" id="steps-section">
+      <div class="ds-section-header">
+        <div class="ds-station-index">
+          <span class="ds-station-num">02</span>
+          <span data-i18n="stepsTag">POST-INSTALL AUTOMATION ENGINE</span>
+        </div>
+        <h2 class="ds-section-title" data-i18n="stepsTitle">Additional Steps — 4 Post-Install Pipeline Modes</h2>
+        <p class="ds-section-desc" data-i18n="stepsDesc">
+          Every program in either queue has its own post-install workflow that executes immediately after that specific program finishes installing. Select any mode below to inspect its pipeline:
+        </p>
+      </div>
+
+      <div class="ds-node">
+        <span class="ds-port is-active ds-port-top"></span>
+        <div class="ds-node-header">
+          <span>[NODE 02 // ADDITIONAL STEPS DISPATCHER]</span>
+          <div class="steps-mode-bar" role="tablist" aria-label="Additional Steps Modes">
+            <button type="button" class="ds-chip-btn is-active" id="step-tab-0" role="tab" aria-selected="true" onclick="selectStepMode(0)" data-i18n="sTab1">1. Copy &amp; Replace</button>
+            <button type="button" class="ds-chip-btn" id="step-tab-1" role="tab" aria-selected="false" onclick="selectStepMode(1)" data-i18n="sTab2">2. Move &amp; Replace</button>
+            <button type="button" class="ds-chip-btn" id="step-tab-2" role="tab" aria-selected="false" onclick="selectStepMode(2)" data-i18n="sTab3">3. Run Program &amp; Wait</button>
+            <button type="button" class="ds-chip-btn" id="step-tab-3" role="tab" aria-selected="false" onclick="selectStepMode(3)" data-i18n="sTab4">4. Backup from Current OS</button>
+          </div>
+        </div>
+
+        <div class="ds-node-body">
+          <div class="step-mode-panel is-active" id="step-panel-0" role="tabpanel">
+            <div>
+              <span class="ds-mono" style="font-size:0.74rem;color:var(--ink-muted);" data-i18n="s1Badge">MODE 1 • MULTI-SOURCE / MULTI-DESTINATION COPY</span>
+              <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block:0.25rem 0.4rem;" data-i18n="s1Title">
+                1. Copy &amp; Replace (Preserves Original Files)
+              </h3>
+              <p style="font-size:var(--text-sm);color:var(--ink-muted);" data-i18n="s1Desc">
+                Select multiple source files or entire folders at once and copy them into one or more destination directories immediately after the program finishes installing.
+              </p>
+            </div>
+            <div class="pipe-schematic">
+              <div class="pipe-box">
+                <span class="ds-mono" style="font-size:0.68rem;color:var(--ink-muted);display:block;">SOURCE NODE</span>
+                <code style="font-weight:700;">revouninstallerpro5.lic</code>
+              </div>
+              <div class="pipe-mid">
+                <span class="ds-mono" style="background:var(--site-accent);color:var(--ink-on-accent);padding:0.12rem 0.5rem;border-radius:var(--radius-sm);border:1px solid var(--ink);font-weight:700;font-size:0.7rem;">Auto Copy &amp; Replace</span>
+                <svg class="pipe-line-svg" viewBox="0 0 180 24" aria-hidden="true">
+                  <line x1="8" y1="12" x2="172" y2="12" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="4 4"/>
+                  <line class="pipe-line-draw" x1="8" y1="12" x2="172" y2="12"/>
+                  <circle cx="8" cy="12" r="4.5" fill="var(--site-accent)" stroke="var(--ink)" stroke-width="1.5"/>
+                  <polygon points="174,12 165,7 165,17" fill="var(--ink)"/>
+                </svg>
+              </div>
+              <div class="pipe-box">
+                <span class="ds-mono" style="font-size:0.68rem;color:var(--ink-muted);display:block;">DESTINATION NODE</span>
+                <code style="font-weight:700;">C:\ProgramData\VS Revo Group\Revo Uninstaller Pro</code>
+              </div>
+            </div>
+            <div class="step-example-note" data-i18n="s1Ex">
+              <strong>Real Example:</strong> Automatically copying a license file (<code>revouninstallerpro5.lic</code>) or custom configuration file into <code>ProgramData</code> right after Revo Uninstaller finishes installing—while keeping <code>C:\ProgramData</code> hidden.
+            </div>
+          </div>
+
+          <div class="step-mode-panel" id="step-panel-1" role="tabpanel">
+            <div>
+              <span class="ds-mono" style="font-size:0.74rem;color:var(--ink-muted);" data-i18n="s2Badge">MODE 2 • SAFE MULTI-DESTINATION MOVE</span>
+              <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block:0.25rem 0.4rem;" data-i18n="s2Title">
+                2. Move &amp; Replace (Zero Data-Loss Guarantee)
+              </h3>
+              <p style="font-size:var(--text-sm);color:var(--ink-muted);" data-i18n="s2Desc">
+                Copies your selected files or folders to all target destination directories first, and only deletes the original source after verifying that every single destination copy succeeded 100%.
+              </p>
+            </div>
+            <div class="pipe-schematic">
+              <div class="pipe-box">
+                <span class="ds-mono" style="font-size:0.68rem;color:var(--ink-muted);display:block;">SOURCE STAGING</span>
+                <code style="font-weight:700;">ThemePack_v2\*</code>
+              </div>
+              <div class="pipe-mid">
+                <span class="ds-mono" style="background:var(--site-accent);color:var(--ink-on-accent);padding:0.12rem 0.5rem;border-radius:var(--radius-sm);border:1px solid var(--ink);font-weight:700;font-size:0.7rem;">Verified Move ✓</span>
+                <svg class="pipe-line-svg" viewBox="0 0 180 24" aria-hidden="true">
+                  <line x1="8" y1="12" x2="172" y2="12" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="4 4"/>
+                  <line class="pipe-line-draw" x1="8" y1="12" x2="172" y2="12"/>
+                  <circle cx="8" cy="12" r="4.5" fill="var(--site-accent)" stroke="var(--ink)" stroke-width="1.5"/>
+                  <polygon points="174,12 165,7 165,17" fill="var(--ink)"/>
+                </svg>
+              </div>
+              <div class="pipe-box">
+                <span class="ds-mono" style="font-size:0.68rem;color:var(--ink-muted);display:block;">DEST #1 &amp; DEST #2</span>
+                <code style="font-weight:700;">Copy Verified ➔ Cleanup Source</code>
+              </div>
+            </div>
+            <div class="step-example-note" data-i18n="s2Ex">
+              <strong>Real Example:</strong> Moving downloaded plugin bundles or media assets into multiple application directories and cleaning up the temporary staging folder automatically.
+            </div>
+          </div>
+
+          <div class="step-mode-panel" id="step-panel-2" role="tabpanel">
+            <div>
+              <span class="ds-mono" style="font-size:0.74rem;color:var(--ink-muted);" data-i18n="s3Badge">MODE 3 • SEQUENTIAL PROCESS CHAINING</span>
+              <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block:0.25rem 0.4rem;" data-i18n="s3Title">
+                3. Run Program (Wait Until Closed)
+              </h3>
+              <p style="font-size:var(--text-sm);color:var(--ink-muted);" data-i18n="s3Desc">
+                Launches a dependent .exe, .msi, .bat, .reg, or .ps1 utility right after the main program installs, pausing the deployment queue until you close that secondary tool.
+              </p>
+            </div>
+            <div class="pipe-schematic">
+              <div class="pipe-box">
+                <span class="ds-mono" style="font-size:0.68rem;color:var(--ink-muted);display:block;">PRIMARY INSTALLER</span>
+                <code style="font-weight:700;">DiscordSetup.exe (--silent)</code>
+              </div>
+              <div class="pipe-mid">
+                <span class="ds-mono" style="background:var(--site-accent);color:var(--ink-on-accent);padding:0.12rem 0.5rem;border-radius:var(--radius-sm);border:1px solid var(--ink);font-weight:700;font-size:0.7rem;">Launch &amp; Wait</span>
+                <svg class="pipe-line-svg" viewBox="0 0 180 24" aria-hidden="true">
+                  <line x1="8" y1="12" x2="172" y2="12" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="4 4"/>
+                  <line class="pipe-line-draw" x1="8" y1="12" x2="172" y2="12"/>
+                  <circle cx="8" cy="12" r="4.5" fill="var(--site-accent)" stroke="var(--ink)" stroke-width="1.5"/>
+                  <polygon points="174,12 165,7 165,17" fill="var(--ink)"/>
+                </svg>
+              </div>
+              <div class="pipe-box">
+                <span class="ds-mono" style="font-size:0.68rem;color:var(--ink-muted);display:block;">DEPENDENT TOOL</span>
+                <code style="font-weight:700;">VencordInstaller.exe ➔ Next App</code>
+              </div>
+            </div>
+            <div class="step-example-note" data-i18n="s3Ex">
+              <strong>Real Example:</strong> Installing Discord silently, then automatically launching <code>VencordInstaller.exe</code> so you can click 'Install' on your client mod, and waiting until you close Vencord before advancing the queue.
+            </div>
+          </div>
+
+          <div class="step-mode-panel" id="step-panel-3" role="tabpanel">
+            <div>
+              <span class="ds-mono" style="font-size:0.74rem;color:var(--ink-muted);" data-i18n="s4Badge">MODE 4 • PORTABLE OS CONFIGURATION SNAPSHOT</span>
+              <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block:0.25rem 0.4rem;" data-i18n="s4Title">
+                4. Backup from Current OS (Dynamic Environment Variables)
+              </h3>
+              <p style="font-size:var(--text-sm);color:var(--ink-muted);" data-i18n="s4Desc">
+                Before formatting your PC, click 'Backup from Current OS' to snapshot a program's settings or logged-in session folder into 'AutoDeploy_OS_Backups'. AutoDeploy converts the destination path into portable variables (%APPDATA%, %LOCALAPPDATA%, %PROGRAMDATA%, %USERPROFILE%).
+              </p>
+            </div>
+            <div class="pipe-schematic">
+              <div class="pipe-box">
+                <span class="ds-mono" style="font-size:0.68rem;color:var(--ink-muted);display:block;">PORTABLE SNAPSHOT</span>
+                <code style="font-weight:700;">AutoDeploy_OS_Backups\qBittorrent</code>
+              </div>
+              <div class="pipe-mid">
+                <span class="ds-mono" style="background:var(--site-accent);color:var(--ink-on-accent);padding:0.12rem 0.5rem;border-radius:var(--radius-sm);border:1px solid var(--ink);font-weight:700;font-size:0.7rem;">Dynamic Variable</span>
+                <svg class="pipe-line-svg" viewBox="0 0 180 24" aria-hidden="true">
+                  <line x1="8" y1="12" x2="172" y2="12" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="4 4"/>
+                  <line class="pipe-line-draw" x1="8" y1="12" x2="172" y2="12"/>
+                  <circle cx="8" cy="12" r="4.5" fill="var(--site-accent)" stroke="var(--ink)" stroke-width="1.5"/>
+                  <polygon points="174,12 165,7 165,17" fill="var(--ink)"/>
+                </svg>
+              </div>
+              <div class="pipe-box">
+                <span class="ds-mono" style="font-size:0.68rem;color:var(--ink-muted);display:block;">NEW OS TARGET</span>
+                <code style="font-weight:700;">%APPDATA%\qBittorrent</code>
+              </div>
+            </div>
+            <div class="step-example-note" data-i18n="s4Ex">
+              <strong>Real Example:</strong> Capturing your qBittorrent, OBS Studio, or VS Code settings from your current Windows so that after a fresh format—even if you change your Windows username—all your settings restore to the exact right folder.
+            </div>
+          </div>
+
+          <div style="margin-block-start:var(--space-4);display:flex;align-items:center;gap:0.75rem;">
+            <span class="ds-mono" style="font-size:0.72rem;color:var(--ink-muted);white-space:nowrap;" id="step-mode-counter">MODE 1 / 4</span>
+            <div class="ds-progress" id="step-mode-bar" style="--progress: 0.25;">
+              <div class="ds-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+        <span class="ds-port is-active ds-port-bottom"></span>
+      </div>
+    </section>
+
+    <!-- STATION 03: 8 REAL-WORLD OS CHALLENGES -->
+    <section class="ds-section" id="challenges-section">
+      <div class="ds-section-header">
+        <div class="ds-station-index">
+          <span class="ds-station-num">03</span>
+          <span data-i18n="challengesTag">BATTLE-TESTED ON BARE-METAL WINDOWS</span>
+        </div>
+        <h2 class="ds-section-title" data-i18n="challengesTitle">8 Real-World OS Challenges &amp; Engineered Solutions</h2>
+        <p class="ds-section-desc" data-i18n="challengesDesc">
+          Fresh Windows installations lack root certificates, C++ runtimes, and registry states. Here is how AutoDeploy diagnoses and solves the 8 toughest post-format problems:
+        </p>
+      </div>
+
+      <div class="matrix-grid">
+        <article class="matrix-card" onclick="pulseMatrixArrow(this)">
+          <div class="matrix-head">
+            <h3 class="matrix-title" data-i18n="ch1Title">#01 — Drag &amp; Drop Blocked into Elevated Window</h3>
+            <span class="ds-mono" style="color:var(--ink-muted);">[WIN32 UIPI ISOLATION]</span>
+          </div>
+          <div class="matrix-body">
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-fault" data-i18n="lblFault">FAULT // OS STATE</span>
+              <p data-i18n="ch1Cause">Windows User Interface Privilege Isolation (UIPI) blocks dragging files from Explorer (standard user) into an elevated Administrator window.</p>
+            </div>
+            <div class="matrix-connector-cell" aria-hidden="true">
+              <svg width="32" height="20" viewBox="0 0 32 20"><line x1="2" y1="10" x2="26" y2="10" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="3 3"/><line class="matrix-arrow-line" x1="2" y1="10" x2="26" y2="10"/><polygon points="30,10 22,5 22,15" fill="var(--ink)"/></svg>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-patch" data-i18n="lblPatch">PATCH // AUTODEPLOY SOLUTION</span>
+              <p data-i18n="ch1Sol">AutoDeploy launches as a standard user so Drag &amp; Drop works natively, requesting a single on-demand UAC elevation (<code>--autorun-install</code>) only when starting deployment.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="matrix-card" onclick="pulseMatrixArrow(this)">
+          <div class="matrix-head">
+            <h3 class="matrix-title" data-i18n="ch2Title">#02 — SSL: CERTIFICATE_VERIFY_FAILED on Fresh OS</h3>
+            <span class="ds-mono" style="color:var(--ink-muted);">[MISSING ROOT CERTS]</span>
+          </div>
+          <div class="matrix-body">
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-fault" data-i18n="lblFault">FAULT // OS STATE</span>
+              <p data-i18n="ch2Cause">A freshly formatted Windows OS has not yet fetched Root Certificates from Windows Update, causing strict HTTPS handshakes to fail.</p>
+            </div>
+            <div class="matrix-connector-cell" aria-hidden="true">
+              <svg width="32" height="20" viewBox="0 0 32 20"><line x1="2" y1="10" x2="26" y2="10" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="3 3"/><line class="matrix-arrow-line" x1="2" y1="10" x2="26" y2="10"/><polygon points="30,10 22,5 22,15" fill="var(--ink)"/></svg>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-patch" data-i18n="lblPatch">PATCH // AUTODEPLOY SOLUTION</span>
+              <p data-i18n="ch2Sol">Performs one upfront connectivity check (skipping all checks if offline) and uses a Smart SSL Fallback that retries failed handshakes with an unverified SSL context.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="matrix-card" onclick="pulseMatrixArrow(this)">
+          <div class="matrix-head">
+            <h3 class="matrix-title" data-i18n="ch3Title">#03 — False-Positive [SKIPPED] Detections</h3>
+            <span class="ds-mono" style="color:var(--ink-muted);">[REGISTRY MATCHING]</span>
+          </div>
+          <div class="matrix-body">
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-fault" data-i18n="lblFault">FAULT // OS STATE</span>
+              <p data-i18n="ch3Cause">Scanning Program Files folder names matches generic vendor folders (Microsoft, Windows), and naive regex truncates 'Uninstaller' into 'Pro'.</p>
+            </div>
+            <div class="matrix-connector-cell" aria-hidden="true">
+              <svg width="32" height="20" viewBox="0 0 32 20"><line x1="2" y1="10" x2="26" y2="10" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="3 3"/><line class="matrix-arrow-line" x1="2" y1="10" x2="26" y2="10"/><polygon points="30,10 22,5 22,15" fill="var(--ink)"/></svg>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-patch" data-i18n="lblPatch">PATCH // AUTODEPLOY SOLUTION</span>
+              <p data-i18n="ch3Sol">Enforces strict word boundaries (<code>\b</code>) during metadata cleaning and matches normalized software names exclusively against Windows Uninstall Registry keys.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="matrix-card" onclick="pulseMatrixArrow(this)">
+          <div class="matrix-head">
+            <h3 class="matrix-title" data-i18n="ch4Title">#04 — Batch Files (.bat) Failing with Code 1 or Hanging</h3>
+            <span class="ds-mono" style="color:var(--ink-muted);">[BATCH RUNNER]</span>
+          </div>
+          <div class="matrix-body">
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-fault" data-i18n="lblFault">FAULT // OS STATE</span>
+              <p data-i18n="ch4Cause">Folder paths with spaces (e.g., D:\Windows Programs) break unquoted %~dp0 calls inside batch scripts, and 'pause' halts unattended execution.</p>
+            </div>
+            <div class="matrix-connector-cell" aria-hidden="true">
+              <svg width="32" height="20" viewBox="0 0 32 20"><line x1="2" y1="10" x2="26" y2="10" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="3 3"/><line class="matrix-arrow-line" x1="2" y1="10" x2="26" y2="10"/><polygon points="30,10 22,5 22,15" fill="var(--ink)"/></svg>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-patch" data-i18n="lblPatch">PATCH // AUTODEPLOY SOLUTION</span>
+              <p data-i18n="ch4Sol">Dynamically generates a runner script that prepends <code>@cd /d "%~dp0"</code>, wraps unquoted <code>%~dp0</code> calls in quotes, strips <code>pause</code>, and redirects stdin to DEVNULL.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="matrix-card" onclick="pulseMatrixArrow(this)">
+          <div class="matrix-head">
+            <h3 class="matrix-title" data-i18n="ch5Title">#05 — Installers Rejecting '/S' (Java &amp; FastCopy)</h3>
+            <span class="ds-mono" style="color:var(--ink-muted);">[BINARY INSPECTION]</span>
+          </div>
+          <div class="matrix-body">
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-fault" data-i18n="lblFault">FAULT // OS STATE</span>
+              <p data-i18n="ch5Cause">Custom installers enforce case-sensitive flags ('/s' in Java or '/SILENT' in FastCopy) or store engine signatures in UTF-16LE instead of ASCII.</p>
+            </div>
+            <div class="matrix-connector-cell" aria-hidden="true">
+              <svg width="32" height="20" viewBox="0 0 32 20"><line x1="2" y1="10" x2="26" y2="10" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="3 3"/><line class="matrix-arrow-line" x1="2" y1="10" x2="26" y2="10"/><polygon points="30,10 22,5 22,15" fill="var(--ink)"/></svg>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-patch" data-i18n="lblPatch">PATCH // AUTODEPLOY SOLUTION</span>
+              <p data-i18n="ch5Sol">Combines dual-encoding binary scanning, internal help-string mining, and a Smart Retry timer that tests fallback switches if an installer exits in &lt; 4.5s.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="matrix-card" onclick="pulseMatrixArrow(this)">
+          <div class="matrix-head">
+            <h3 class="matrix-title" data-i18n="ch6Title">#06 — Missing Desktop Shortcuts After Silent Setup</h3>
+            <span class="ds-mono" style="color:var(--ink-muted);">[SHORTCUT SYNC]</span>
+          </div>
+          <div class="matrix-body">
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-fault" data-i18n="lblFault">FAULT // OS STATE</span>
+              <p data-i18n="ch6Cause">Most silent installers disable desktop shortcut creation by default unless explicitly instructed.</p>
+            </div>
+            <div class="matrix-connector-cell" aria-hidden="true">
+              <svg width="32" height="20" viewBox="0 0 32 20"><line x1="2" y1="10" x2="26" y2="10" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="3 3"/><line class="matrix-arrow-line" x1="2" y1="10" x2="26" y2="10"/><polygon points="30,10 22,5 22,15" fill="var(--ink)"/></svg>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-patch" data-i18n="lblPatch">PATCH // AUTODEPLOY SOLUTION</span>
+              <p data-i18n="ch6Sol">Passes <code>/MERGETASKS="desktopicon"</code> for Inno Setup and diffs <code>Start Menu\Programs</code> before and after installation to copy new <code>.lnk</code> shortcuts to the Desktop.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="matrix-card" onclick="pulseMatrixArrow(this)">
+          <div class="matrix-head">
+            <h3 class="matrix-title" data-i18n="ch7Title">#07 — Hidden System Folders (ProgramData) Turning Visible</h3>
+            <span class="ds-mono" style="color:var(--ink-muted);">[ATTRIBUTE GUARD]</span>
+          </div>
+          <div class="matrix-body">
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-fault" data-i18n="lblFault">FAULT // OS STATE</span>
+              <p data-i18n="ch7Cause">Creating directories or copying license/config files into system paths can strip parent folder attributes.</p>
+            </div>
+            <div class="matrix-connector-cell" aria-hidden="true">
+              <svg width="32" height="20" viewBox="0 0 32 20"><line x1="2" y1="10" x2="26" y2="10" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="3 3"/><line class="matrix-arrow-line" x1="2" y1="10" x2="26" y2="10"/><polygon points="30,10 22,5 22,15" fill="var(--ink)"/></svg>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-patch" data-i18n="lblPatch">PATCH // AUTODEPLOY SOLUTION</span>
+              <p data-i18n="ch7Sol">Attribute Guard snapshots parent directory flags via Win32 <code>GetFileAttributesW</code> before copying and restores Hidden &amp; System flags via <code>SetFileAttributesW</code>.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="matrix-card" onclick="pulseMatrixArrow(this)">
+          <div class="matrix-head">
+            <h3 class="matrix-title" data-i18n="ch8Title">#08 — App Failing to Open on Bare-Metal Windows</h3>
+            <span class="ds-mono" style="color:var(--ink-muted);">[EMBEDDED VC++ RUNTIME]</span>
+          </div>
+          <div class="matrix-body">
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-fault" data-i18n="lblFault">FAULT // OS STATE</span>
+              <p data-i18n="ch8Cause">PyQt6 requires Visual C++ runtime DLLs (msvcp140.dll, vcruntime140.dll) that do not exist on a fresh Windows install before drivers are installed.</p>
+            </div>
+            <div class="matrix-connector-cell" aria-hidden="true">
+              <svg width="32" height="20" viewBox="0 0 32 20"><line x1="2" y1="10" x2="26" y2="10" stroke="var(--rule-strong)" stroke-width="2" stroke-dasharray="3 3"/><line class="matrix-arrow-line" x1="2" y1="10" x2="26" y2="10"/><polygon points="30,10 22,5 22,15" fill="var(--ink)"/></svg>
+            </div>
+            <div class="matrix-cell">
+              <span class="matrix-badge matrix-badge-patch" data-i18n="lblPatch">PATCH // AUTODEPLOY SOLUTION</span>
+              <p data-i18n="ch8Sol">Bundles the required Visual C++ DLLs directly inside the standalone <code>AutoDeploy.exe</code> binary during PyInstaller compilation so it runs from second one.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- STATION 04: RELEASE CHANGELOG -->
+    <section class="ds-section" id="changelog-section" style="border-block-end:none;">
+      <div class="changelog-header-row">
+        <div class="ds-section-header">
+          <div class="ds-station-index">
+            <span class="ds-station-num">04</span>
+            <span id="changelog-tag" data-i18n="changelogTag">RELEASE NOTES • v1.2.0</span>
+          </div>
+          <h2 class="ds-section-title" data-i18n="changelogTitle">What's New &amp; Fixed in AutoDeploy</h2>
+          <p class="ds-section-desc" data-i18n="changelogDesc">
+            Latest stability, unattended execution, 64-bit concurrency, and multilingual batch script improvements:
+          </p>
+        </div>
+
+        <a href="https://github.com/Esam-Haraz/AutoDeploy/releases" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn-secondary" id="changelog-gh-link">
+          <span data-i18n="changelogGhLink">View Releases on GitHub ↗</span>
+        </a>
+      </div>
+
+      <div class="changelog-grid">
+        <article class="ds-node">
+          <span class="ds-port is-active ds-port-top"></span>
+          <div class="ds-node-header">
+            <span>[CHANGELOG 01 // UNATTENDED FLOW]</span>
+            <span class="ds-release-tag">v1.2.0</span>
+          </div>
+          <div class="ds-node-body">
+            <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block-end:var(--space-3);" data-i18n="cl1Title">
+              Unattended Deployment &amp; Update Handling
+            </h3>
+            <ul class="cl-list">
+              <li class="cl-item">
+                <div class="cl-item-title" data-i18n="cl1Item1Title">✓ Smart Unattended Timeout</div>
+                <p class="cl-item-desc" data-i18n="cl1Item1Desc">
+                  If an update prompt times out without user input during <code>Silent Setup</code>, AutoDeploy now assumes the session is unattended, keeps the local version, and automatically skips update checks for the remaining items in that phase instead of waiting 60 seconds per app.
+                </p>
+              </li>
+              <li class="cl-item">
+                <div class="cl-item-title" data-i18n="cl1Item2Title">✓ Automatic Reset for Custom Setup</div>
+                <p class="cl-item-desc" data-i18n="cl1Item2Desc">
+                  Update prompts are automatically re-enabled when <code>Phase 2 (Custom Setup)</code> begins so interactive installations always check for updates normally.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="ds-node">
+          <span class="ds-port is-active ds-port-top"></span>
+          <div class="ds-node-header">
+            <span>[CHANGELOG 02 // STABILITY &amp; MUTEX]</span>
+            <span class="ds-release-tag">v1.2.0</span>
+          </div>
+          <div class="ds-node-body">
+            <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block-end:var(--space-3);" data-i18n="cl2Title">
+              Stability, Window Closing &amp; Concurrency
+            </h3>
+            <ul class="cl-list">
+              <li class="cl-item">
+                <div class="cl-item-title" data-i18n="cl2Item1Title">✓ Safe Stop &amp; Close Flow</div>
+                <p class="cl-item-desc" data-i18n="cl2Item1Desc">
+                  Fixed a race condition between <code>QThread.finished</code> and <code>isRunning()</code> when stopping a deployment or closing the window mid-run. Clicking Close (✕ / Alt+F4) while stopping now waits cleanly for the active step to finish before exiting.
+                </p>
+              </li>
+              <li class="cl-item">
+                <div class="cl-item-title" data-i18n="cl2Item2Title">✓ Readable Close Confirmation Dialog</div>
+                <p class="cl-item-desc" data-i18n="cl2Item2Desc">
+                  Applied a high-contrast dark theme to the "Deployment in Progress" confirmation prompt so text and buttons are clearly visible.
+                </p>
+              </li>
+              <li class="cl-item">
+                <div class="cl-item-title" data-i18n="cl2Item3Title">✓ 64-Bit Safe Single-Instance Mutex</div>
+                <p class="cl-item-desc" data-i18n="cl2Item3Desc">
+                  Updated <code>CreateMutexW</code> / <code>CloseHandle</code> bindings with explicit 64-bit <code>ctypes</code> signatures (<code>use_last_error=True</code>), proper <code>ERROR_ACCESS_DENIED</code> handling for elevated instances, and fail-open behavior on unexpected OS mutex errors.
+                </p>
+              </li>
+              <li class="cl-item">
+                <div class="cl-item-title" data-i18n="cl2Item4Title">✓ Crash Dialog Rate-Limiting</div>
+                <p class="cl-item-desc" data-i18n="cl2Item4Desc">
+                  All unhandled exceptions continue to be written to <code>crash_log.txt</code>, while modal error popups are now limited to at most once every 30 seconds to prevent dialog stacking.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="ds-node">
+          <span class="ds-port is-active ds-port-top"></span>
+          <div class="ds-node-header">
+            <span>[CHANGELOG 03 // BATCH &amp; LOGS]</span>
+            <span class="ds-release-tag">v1.2.0</span>
+          </div>
+          <div class="ds-node-body">
+            <h3 style="font-family:var(--font-display);font-size:var(--text-h3);margin-block-end:var(--space-3);" data-i18n="cl3Title">
+              Batch Runner &amp; Logging Improvements
+            </h3>
+            <ul class="cl-list">
+              <li class="cl-item">
+                <div class="cl-item-title" data-i18n="cl3Item1Title">✓ Arabic / UTF-8 Batch Path Fix</div>
+                <p class="cl-item-desc" data-i18n="cl3Item1Desc">
+                  Added <code>re.ASCII</code> flags to regex substitutions in the <code>.bat</code> / <code>.cmd</code> runner so UTF-8 multibyte characters (such as Arabic filenames) are never misinterpreted as whitespace during automatic <code>%~dp0</code> path quoting or <code>pause</code> bypassing.
+                </p>
+              </li>
+              <li class="cl-item">
+                <div class="cl-item-title" data-i18n="cl3Item2Title">✓ Cleaner Logs</div>
+                <p class="cl-item-desc" data-i18n="cl3Item2Desc">
+                  Removed duplicate exit code <code>1638</code> ("already installed") log messages and ensured the storage path note is always included in exported log files without duplicating it in the UI console.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- STATION 05: FOOTER & CONTACT -->
+  <footer class="ds-footer" id="contact-section">
+    <div class="ds-container">
+      <div class="ds-footer-grid">
+
+        <div class="ds-node">
+          <div class="ds-node-header">
+            <span>[NODE 05A // CUSTOM DEVELOPMENT]</span>
+            <span>PYTHON • PYQT6 • WIN32</span>
+          </div>
+          <div class="ds-node-body">
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.35rem, 2.2vw, 1.75rem);font-weight:800;margin-block-end:0.5rem;" data-i18n="srvHeading">
+              Need a Custom Desktop Tool or Automation Utility?
+            </h2>
+            <p style="font-size:var(--text-sm);color:var(--ink-muted);" data-i18n="srvDesc">
+              I built AutoDeploy from the ground up to solve real operational bottlenecks. I design and build custom Windows desktop software, workflow automation tools, and standalone Python/PyQt6 utilities tailored to individuals and small businesses.
+            </p>
+
+            <ul class="services-grid-list">
+              <li data-i18n="srvItem1">Custom Windows Automation &amp; Deployment Tools</li>
+              <li data-i18n="srvItem2">Modern PyQt6 Desktop Applications</li>
+              <li data-i18n="srvItem3">File, Registry &amp; System Maintenance Utilities</li>
+              <li data-i18n="srvItem4">Standalone Zero-Dependency .EXE Packaging</li>
+            </ul>
+
+            <p class="ds-mono" style="font-size:0.75rem;color:var(--ink-muted);" data-i18n="srvBadge">
+              Standalone Executables • Bilingual EN/AR Support • Zero User Setup
+            </p>
+          </div>
+        </div>
+
+        <div class="ds-node">
+          <div class="ds-node-header">
+            <span>[NODE 05B // CONTACT &amp; BUG REPORTS]</span>
+            <span>ESAM HARAZ // EGYPT</span>
+          </div>
+          <div class="ds-node-body">
+            <h3 style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;margin-block-end:0.35rem;" data-i18n="contactHeading">
+              Contact &amp; Support Channels
+            </h3>
+            <p style="font-size:var(--text-sm);color:var(--ink-muted);" data-i18n="contactSub">
+              For custom project inquiries, visit the main Services Hub. For AutoDeploy bug reports or direct email:
+            </p>
+
+            <div class="contact-routes-list" id="contact-routes-list">
+              <a href="https://Esam-Haraz.github.io/hub/#contact" class="contact-route-link is-hub-primary" id="link-hub-contact">
+                <span data-i18n="lblHubContact">Main Services Hub — Hire / Contact Me</span>
+                <span class="ds-mono">HUB ↗</span>
+              </a>
+
+              <a href="https://github.com/Esam-Haraz/AutoDeploy/issues" target="_blank" rel="noopener noreferrer" class="contact-route-link" id="link-gh-issues">
+                <span data-i18n="lblGhIssues">Report a Bug or Request a Feature</span>
+                <span class="ds-mono">GitHub Issues ↗</span>
+              </a>
+
+              <a href="mailto:esamv20@gmail.com" class="contact-route-link" id="link-email">
+                <span>esamv20@gmail.com</span>
+                <span class="ds-mono" data-i18n="lblEmailAction">Email ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ds-copyright-bar">
+        <span data-i18n="footerCopy">Copyright © 2026 Esam Haraz. All rights reserved.</span>
+        <span class="ds-mono">Design System v1.1 (Pipeline) • Desktop Tools • AutoDeploy • Python • PyQt6</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BILINGUAL DICTIONARY (EN & AR)
+       ========================================================================== -->
+  <script>
+    window.PAGE_I18N = {
+      en: {
+        skipLink: "Skip to main content",
+        heroTag: "ZERO-DEPENDENCY WINDOWS 10 / 11 UTILITY",
+        heroHeadline: 'Automate Your Entire Post-Format Setup in <span class="ds-accent-box">One Click.</span>',
+        heroSummary: 'Stop wasting hours clicking "Next" after every Windows format. AutoDeploy combines a universal binary silent-switch detector, multi-destination file/config restoration, AppData OS snapshots, and winget auto-updates inside a standalone executable.',
+        ctaDownload: "Download AutoDeploy.exe",
+        ctaGithub: "View on GitHub ↗",
+        lblVersion: "VERSION:",
+        lblSize: "SIZE:",
+        lblMode: "PORTABILITY:",
+        valPortable: "USB & External Drive Ready",
+        btnCopySha: "Copy SHA-256",
+        smartScreenNote: '<strong>Windows SmartScreen Note:</strong> AutoDeploy is an independent open-source binary without a paid commercial EV code-signing certificate. If Windows SmartScreen appears on first launch, click <code>More info</code> then <code>Run anyway</code>. You can verify the binary anytime using the SHA-256 digest above or inspect the source on GitHub.',
+        simCaption: 'Interactive Live Preview: Click the tabs above, toggle checkboxes, inspect configured steps, or run "3. Launch & Monitor".',
+        m1Val: "100% Portable",
+        m1Lbl: "Saves queues in human-readable .txt files ready for any USB or external drive",
+        m2Val: "Smart Retry",
+        m2Lbl: "Auto-detects silent flags (ASCII/UTF-16LE) with 4.5s fallback retry chain",
+        m3Val: "OS Snapshot",
+        m3Lbl: "Captures current OS configs and restores via dynamic %APPDATA% variables",
+        m4Val: "Self-Updating",
+        m4Lbl: "Built-in GitHub updater hot-swaps AutoDeploy.exe in-place with a progress bar",
+        queuesTag: "DUAL-PHASE ARCHITECTURE",
+        queuesTitle: "1. Silent Setup vs. 2. Custom Setup",
+        queuesDesc: "AutoDeploy divides your software deployment into two sequential phases stored in portable .txt files alongside the executable, giving you 100% unattended speed where you want it and manual control where you need it.",
+        q1Phase: "[PHASE 1 // UNATTENDED]",
+        q1Title: "1. Silent Setup",
+        q1Summary: "Runs 100% silently in the background with zero pop-ups, wizard windows, or manual 'Next' clicks.",
+        q1Pt1: "Inspects binary signatures for Inno Setup, NSIS, WiX Burn, Squirrel, Omaha, InstallShield, and 7z SFX.",
+        q1Pt2: "Extracts case-sensitive switches directly from embedded help tables (e.g., FastCopy, Java, DirectX).",
+        q1Pt3: "Automatically quotes paths and bypasses 'pause' commands in .bat and .cmd scripts.",
+        q1Pt4: "Restores missing Desktop shortcuts from Start Menu after silent installation.",
+        q2Phase: "[PHASE 2 // INTERACTIVE]",
+        q2Title: "2. Custom Setup",
+        q2Summary: "Launches the normal interactive installer UI for programs where you want manual control over paths and components.",
+        q2Pt1: "Ideal for heavy IDEs, compilers, or tools where you change the target drive (e.g., D:\\) or pick custom checkboxes (Git, Python, VS Code).",
+        q2Pt2: "Pauses the queue patiently until you finish and close the installer window.",
+        q2Pt3: "Immediately executes any configured Post-Install Additional Steps once the setup window closes.",
+        q2Pt4: "Smart Queue Move: Dragging an item from Silent to Custom preserves all of its configured Additional Steps.",
+        stepsTag: "POST-INSTALL AUTOMATION ENGINE",
+        stepsTitle: "Additional Steps — 4 Post-Install Pipeline Modes",
+        stepsDesc: "Every program in either queue has its own post-install workflow that executes immediately after that specific program finishes installing. Select any mode below to inspect its pipeline:",
+        sTab1: "1. Copy & Replace",
+        sTab2: "2. Move & Replace",
+        sTab3: "3. Run Program & Wait",
+        sTab4: "4. Backup from Current OS",
+        s1Badge: "MODE 1 • MULTI-SOURCE / MULTI-DESTINATION COPY",
+        s1Title: "1. Copy & Replace (Preserves Original Files)",
+        s1Desc: "Select multiple source files or entire folders at once and copy them into one or more destination directories immediately after the program finishes installing.",
+        s1Ex: "<strong>Real Example:</strong> Automatically copying a license file (<code>revouninstallerpro5.lic</code>) or custom configuration file into <code>ProgramData</code> right after Revo Uninstaller finishes installing—while keeping <code>C:\\ProgramData</code> hidden.",
+        s2Badge: "MODE 2 • SAFE MULTI-DESTINATION MOVE",
+        s2Title: "2. Move & Replace (Zero Data-Loss Guarantee)",
+        s2Desc: "Copies your selected files or folders to all target destination directories first, and only deletes the original source after verifying that every single destination copy succeeded 100%.",
+        s2Ex: "<strong>Real Example:</strong> Moving downloaded plugin bundles or media assets into multiple application directories and cleaning up the temporary staging folder automatically.",
+        s3Badge: "MODE 3 • SEQUENTIAL PROCESS CHAINING",
+        s3Title: "3. Run Program (Wait Until Closed)",
+        s3Desc: "Launches a dependent .exe, .msi, .bat, .reg, or .ps1 utility right after the main program installs, pausing the deployment queue until you close that secondary tool.",
+        s3Ex: "<strong>Real Example:</strong> Installing Discord silently, then automatically launching <code>VencordInstaller.exe</code> so you can click 'Install' on your client mod, and waiting until you close Vencord before advancing the queue.",
+        s4Badge: "MODE 4 • PORTABLE OS CONFIGURATION SNAPSHOT",
+        s4Title: "4. Backup from Current OS (Dynamic Environment Variables)",
+        s4Desc: "Before formatting your PC, click 'Backup from Current OS' to snapshot a program's settings or logged-in session folder into 'AutoDeploy_OS_Backups'. AutoDeploy converts the destination path into portable variables (%APPDATA%, %LOCALAPPDATA%, %PROGRAMDATA%, %USERPROFILE%).",
+        s4Ex: "<strong>Real Example:</strong> Capturing your qBittorrent, OBS Studio, or VS Code settings from your current Windows so that after a fresh format—even if you change your Windows username—all your settings restore to the exact right folder.",
+        challengesTag: "BATTLE-TESTED ON BARE-METAL WINDOWS",
+        challengesTitle: "8 Real-World OS Challenges & Engineered Solutions",
+        challengesDesc: "Fresh Windows installations lack root certificates, C++ runtimes, and registry states. Here is how AutoDeploy diagnoses and solves the 8 toughest post-format problems:",
+        lblFault: "FAULT // OS STATE",
+        lblPatch: "PATCH // AUTODEPLOY SOLUTION",
+        ch1Title: "#01 — Drag & Drop Blocked into Elevated Window",
+        ch1Cause: "Windows User Interface Privilege Isolation (UIPI) blocks dragging files from Explorer (standard user) into an elevated Administrator window.",
+        ch1Sol: "AutoDeploy launches as a standard user so Drag & Drop works natively, requesting a single on-demand UAC elevation (<code>--autorun-install</code>) only when starting deployment.",
+        ch2Title: "#02 — SSL: CERTIFICATE_VERIFY_FAILED on Fresh OS",
+        ch2Cause: "A freshly formatted Windows OS has not yet fetched Root Certificates from Windows Update, causing strict HTTPS handshakes to fail.",
+        ch2Sol: "Performs one upfront connectivity check (skipping all checks if offline) and uses a Smart SSL Fallback that retries failed handshakes with an unverified SSL context.",
+        ch3Title: "#03 — False-Positive [SKIPPED] Detections",
+        ch3Cause: "Scanning Program Files folder names matches generic vendor folders (Microsoft, Windows), and naive regex truncates 'Uninstaller' into 'Pro'.",
+        ch3Sol: "Enforces strict word boundaries (<code>\\b</code>) during metadata cleaning and matches normalized software names exclusively against Windows Uninstall Registry keys.",
+        ch4Title: "#04 — Batch Files (.bat) Failing with Code 1 or Hanging",
+        ch4Cause: "Folder paths with spaces (e.g., D:\\Windows Programs) break unquoted %~dp0 calls inside batch scripts, and 'pause' halts unattended execution.",
+        ch4Sol: 'Dynamically generates a runner script that prepends <code>@cd /d "%~dp0"</code>, wraps unquoted <code>%~dp0</code> calls in quotes, strips <code>pause</code>, and redirects stdin to DEVNULL.',
+        ch5Title: "#05 — Installers Rejecting '/S' (Java & FastCopy)",
+        ch5Cause: "Custom installers enforce case-sensitive flags ('/s' in Java or '/SILENT' in FastCopy) or store engine signatures in UTF-16LE instead of ASCII.",
+        ch5Sol: "Combines dual-encoding binary scanning, internal help-string mining, and a Smart Retry timer that tests fallback switches if an installer exits in < 4.5s.",
+        ch6Title: "#06 — Missing Desktop Shortcuts After Silent Setup",
+        ch6Cause: "Most silent installers disable desktop shortcut creation by default unless explicitly instructed.",
+        ch6Sol: 'Passes <code>/MERGETASKS="desktopicon"</code> for Inno Setup and diffs <code>Start Menu\\Programs</code> before and after installation to copy new <code>.lnk</code> shortcuts to the Desktop.',
+        ch7Title: "#07 — Hidden System Folders (ProgramData) Turning Visible",
+        ch7Cause: "Creating directories or copying license/config files into system paths can strip parent folder attributes.",
+        ch7Sol: "Attribute Guard snapshots parent directory flags via Win32 <code>GetFileAttributesW</code> before copying and restores Hidden & System flags via <code>SetFileAttributesW</code>.",
+        ch8Title: "#08 — App Failing to Open on Bare-Metal Windows",
+        ch8Cause: "PyQt6 requires Visual C++ runtime DLLs (msvcp140.dll, vcruntime140.dll) that do not exist on a fresh Windows install before drivers are installed.",
+        ch8Sol: "Bundles the required Visual C++ DLLs directly inside the standalone <code>AutoDeploy.exe</code> binary during PyInstaller compilation so it runs from second one.",
+        changelogTag: "RELEASE NOTES • v1.2.0",
+        changelogTitle: "What's New & Fixed in AutoDeploy",
+        changelogDesc: "Latest stability, unattended execution, 64-bit concurrency, and multilingual batch script improvements:",
+        changelogGhLink: "View Releases on GitHub ↗",
+        cl1Title: "Unattended Deployment & Update Handling",
+        cl1Item1Title: "✓ Smart Unattended Timeout",
+        cl1Item1Desc: "If an update prompt times out without user input during <code>Silent Setup</code>, AutoDeploy now assumes the session is unattended, keeps the local version, and automatically skips update checks for the remaining items in that phase instead of waiting 60 seconds per app.",
+        cl1Item2Title: "✓ Automatic Reset for Custom Setup",
+        cl1Item2Desc: "Update prompts are automatically re-enabled when <code>Phase 2 (Custom Setup)</code> begins so interactive installations always check for updates normally.",
+        cl2Title: "Stability, Window Closing & Concurrency",
+        cl2Item1Title: "✓ Safe Stop & Close Flow",
+        cl2Item1Desc: "Fixed a race condition between <code>QThread.finished</code> and <code>isRunning()</code> when stopping a deployment or closing the window mid-run. Clicking Close (✕ / Alt+F4) while stopping now waits cleanly for the active step to finish before exiting.",
+        cl2Item2Title: "✓ Readable Close Confirmation Dialog",
+        cl2Item2Desc: 'Applied a high-contrast dark theme to the "Deployment in Progress" confirmation prompt so text and buttons are clearly visible.',
+        cl2Item3Title: "✓ 64-Bit Safe Single-Instance Mutex",
+        cl2Item3Desc: "Updated <code>CreateMutexW</code> / <code>CloseHandle</code> bindings with explicit 64-bit <code>ctypes</code> signatures (<code>use_last_error=True</code>), proper <code>ERROR_ACCESS_DENIED</code> handling for elevated instances, and fail-open behavior on unexpected OS mutex errors.",
+        cl2Item4Title: "✓ Crash Dialog Rate-Limiting",
+        cl2Item4Desc: "All unhandled exceptions continue to be written to <code>crash_log.txt</code>, while modal error popups are now limited to at most once every 30 seconds to prevent dialog stacking.",
+        cl3Title: "Batch Runner & Logging Improvements",
+        cl3Item1Title: "✓ Arabic / UTF-8 Batch Path Fix",
+        cl3Item1Desc: "Added <code>re.ASCII</code> flags to regex substitutions in the <code>.bat</code> / <code>.cmd</code> runner so UTF-8 multibyte characters (such as Arabic filenames) are never misinterpreted as whitespace during automatic <code>%~dp0</code> path quoting or <code>pause</code> bypassing.",
+        cl3Item2Title: "✓ Cleaner Logs",
+        cl3Item2Desc: 'Removed duplicate exit code <code>1638</code> ("already installed") log messages and ensured the storage path note is always included in exported log files without duplicating it in the UI console.',
+        srvHeading: "Need a Custom Desktop Tool or Automation Utility?",
+        srvDesc: "I built AutoDeploy from the ground up to solve real operational bottlenecks. I design and build custom Windows desktop software, workflow automation tools, and standalone Python/PyQt6 utilities tailored to individuals and small businesses.",
+        srvItem1: "Custom Windows Automation & Deployment Tools",
+        srvItem2: "Modern PyQt6 Desktop Applications",
+        srvItem3: "File, Registry & System Maintenance Utilities",
+        srvItem4: "Standalone Zero-Dependency .EXE Packaging",
+        srvBadge: "Standalone Executables • Bilingual EN/AR Support • Zero User Setup",
+        contactHeading: "Contact & Support Channels",
+        contactSub: "For custom project inquiries, visit the main Services Hub. For AutoDeploy bug reports or direct email:",
+        lblHubContact: "Main Services Hub — Hire / Contact Me",
+        lblGhIssues: "Report a Bug or Request a Feature",
+        lblEmailAction: "Email ↗",
+        footerCopy: "Copyright © 2026 Esam Haraz. All rights reserved."
+      },
+      ar: {
+        skipLink: "تخطي إلى المحتوى الرئيسي",
+        heroTag: "أداة ويندوز 10 / 11 مستقلة بدون مكتبات خارجية",
+        heroHeadline: 'أتمتة تثبيت برامجك وإعداداتك بعد الفورمات <span class="ds-accent-box">بضغطة واحدة.</span>',
+        heroSummary: "وفّر ساعات من الضغط اليدوي على Next بعد كل فورمات. يجمع AutoDeploy بين محرك اكتشاف الأوامر الصامتة الشامل، واسترجاع ملفات التفعيل والإعدادات، وأخذ نسخة احتياطية من AppData، والتحديث التلقائي عبر winget في ملف تنفيذي واحد مستقل.",
+        ctaDownload: "تحميل AutoDeploy.exe مباشرة",
+        ctaGithub: "صفحة المشروع على GitHub ↗",
+        lblVersion: "الإصدار:",
+        lblSize: "الحجم:",
+        lblMode: "التشغيل المحمول:",
+        valPortable: "يعمل من أي فلاشة USB أو هارد خارجي",
+        btnCopySha: "نسخ SHA-256",
+        smartScreenNote: '<strong>ملاحظة Windows SmartScreen:</strong> أداة AutoDeploy مفتوحة المصدر ومستقلة بدون شهادة توقيع تجارية مدفوعة. عند ظهور نافذة SmartScreen في أول تشغيل، اضغط على <code>More info</code> ثم <code>Run anyway</code>. يمكنك التحقق من سلامة الملف عبر بصمة SHA-256 أعلاه أو مراجعة الكود المصدري على GitHub.',
+        simCaption: "معاينة تفاعلية حية: اضغط على التابات بالأعلى، أو جرب تحديد البرامج، أو شغّل التثبيت في التاب الثالث (3. Launch & Monitor).",
+        m1Val: "محمول 100%",
+        m1Lbl: "يحفظ القوائم في ملفات .txt واضحة تعمل على أي فلاشة USB أو هارد خارجي",
+        m2Val: "Smart Retry",
+        m2Lbl: "يكتشف الأوامر الصامتة تلقائياً مع سلسلة محاولة بديلة ذكية خلال 4.5 ثانية",
+        m3Val: "OS Snapshot",
+        m3Lbl: "يسحب إعدادات برامجك من الويندوز الحالي ويسترجعها بمتغيرات %APPDATA% الديناميكية",
+        m4Val: "تحديث ذاتي",
+        m4Lbl: "محدث داخلي عبر GitHub يستبدل ملف AutoDeploy.exe في مكانه بشريط تحميل حي",
+        queuesTag: "معمارية التثبيت ثنائية المراحل",
+        queuesTitle: "الفرق بين 1. Silent Setup و 2. Custom Setup",
+        queuesDesc: "يقسم AutoDeploy عملية التثبيت إلى مرحلتين متتاليتين محفوظتين في ملفات .txt بجانب البرنامج؛ ليمنحك السرعة الصامتة الكاملة للبرامج الروتينية، والتحكم اليدوي للبرامج التي تحتاج تخصيصاً.",
+        q1Phase: "[المرحلة 1 // تثبيت صامت بالكامل]",
+        q1Title: "1. Silent Setup (التثبيت الصامت)",
+        q1Summary: "يثبت البرامج في الخلفية بنسبة 100% دون إظهار أي نوافذ أو طلب ضغط Next.",
+        q1Pt1: "يفحص البنية الثنائية بنظامي ASCII و UTF-16LE للتعرف على Inno Setup و NSIS و WiX و Squirrel و InstallShield و 7z SFX.",
+        q1Pt2: "يستخرج الأوامر الحساسة لحالة الأحرف من جدول المساعدة الداخلي للملف (مثل FastCopy و Java و DirectX).",
+        q1Pt3: "يحوط المسارات بعلامات تنصيص تلقائياً ويتخطى أوامر pause في ملفات .bat و .cmd.",
+        q1Pt4: "يسترجع أيقونات سطح المكتب المفقودة تلقائياً من قائمة Start Menu فور انتهاء التثبيت.",
+        q2Phase: "[المرحلة 2 // تثبيت تفاعلي مخصص]",
+        q2Title: "2. Custom Setup (التثبيت المخصص)",
+        q2Summary: "يفتح نافذة التثبيت العادية للبرامج التي ترغب في تغيير مسار تثبيتها أو اختيار إضافاتها بنفسك.",
+        q2Pt1: "مثالي لبيئات البرمجة والبرامج الكبيرة التي تغير مسارها لبارتيشن آخر (مثل D:\\) أو تختار إضافاتها يدوياً (مثل Git, Python, VS Code).",
+        q2Pt2: "ينتظر بهدوء حتى تنتهي من التثبيت وتغلق النافذة بنفسك قبل الانتقال للبرنامج التالي.",
+        q2Pt3: "ينفذ جميع الخطوات الإضافية (Additional Steps) الخاصة بالبرنامج فور إغلاق نافذة التثبيت.",
+        q2Pt4: "نقل ذكي بين القوائم: عند نقل برنامج من الصامت للمخصص يحتفظ بكامل خطواته الإضافية المحفوظة.",
+        stepsTag: "محرك مهام ما بعد التثبيت",
+        stepsTitle: "Additional Steps — 4 أوضاع ذكية لما بعد التثبيت",
+        stepsDesc: "يمتلك كل برنامج قائمة مهام خاصة به تُنفذ تلقائياً فور انتهاء تثبيته. اضغط على أي وضع بالأسفل لمشاهدة طريقة عمله بالمثال العملي:",
+        sTab1: "1. Copy & Replace",
+        sTab2: "2. Move & Replace",
+        sTab3: "3. Run Program & Wait",
+        sTab4: "4. Backup from Current OS",
+        s1Badge: "الوضع الأول • نسخ واستبدال متعدد المصادر والوجهات",
+        s1Title: "1. Copy & Replace (نسخ مع الاحتفاظ بالملف الأصلي)",
+        s1Desc: "تحديد ملف أو عدة ملفات وفولدرات دفعة واحدة ونسخها إلى فولدر وجهة واحد أو عدة فولدرات فور انتهاء تثبيت البرنامج.",
+        s1Ex: "<strong>مثال عملي:</strong> نسخ ملف التفعيل (<code>revouninstallerpro5.lic</code>) تلقائياً إلى مجلد <code>ProgramData</code> فور انتهاء تثبيت Revo Uninstaller مع الحفاظ على إخفاء مجلد <code>C:\\ProgramData</code>.",
+        s2Badge: "الوضع الثاني • نقل متعدد الوجهات بضمان عدم فقدان البيانات",
+        s2Title: "2. Move & Replace (نقل واستبدال آمن 100%)",
+        s2Desc: "ينسخ الملفات أو الفولدرات المحددة إلى جميع فولدرات الوجهة أولاً، ولا يحذف الملف الأصلي إلا بعد التأكد التام من نجاح النسخ في كل الوجهات.",
+        s2Ex: "<strong>مثال عملي:</strong> نقل حزم إضافات (Plugins) أو قوالب جاهزة إلى داخل فولدر البرنامج بعد تثبيته وتنظيف الفولدر المؤقت تلقائياً.",
+        s3Badge: "الوضع الثالث • ربط البرامج التابعة والباتشات بالتتابع",
+        s3Title: "3. Run Program (تشغيل برنامج والانتظار حتى إغلاقه)",
+        s3Desc: "فتح أداة فرعية (.exe, .msi, .bat, .reg, .ps1) فور انتهاء تثبيت البرنامج الأساسي، وإيقاف الطابور مؤقتاً حتى تغلق هذه الأداة يدوياً.",
+        s3Ex: "<strong>مثال عملي:</strong> تثبيت برنامج Discord في الوضع الصامت، ثم فتح أداة <code>VencordInstaller.exe</code> تلقائياً لتفعيل الإضافات، وينتظر AutoDeploy حتى تغلق Vencord ليكمل باقي الطابور.",
+        s4Badge: "الوضع الرابع • لقطة إعدادات النظام المحمولة",
+        s4Title: "4. Backup from Current OS (استرجاع الإعدادات والحسابات تلقائياً)",
+        s4Desc: "قبل فرمتة الويندوز الحالي، اضغط على الزر لاختيار فولدر إعدادات البرنامج (من AppData أو ProgramData)؛ ليحفظه البرنامج في AutoDeploy_OS_Backups ويحول مسار استرجاعه تلقائياً إلى متغير بيئي ديناميكي (%APPDATA%, %LOCALAPPDATA%, %USERPROFILE%).",
+        s4Ex: "<strong>مثال عملي:</strong> سحب إعدادات qBittorrent أو OBS Studio أو VS Code من الويندوز الحالي؛ ليعيدها AutoDeploy لمكانها الصحيح تلقائياً بعد الفورمات حتى لو غيرت اسم المستخدم في الويندوز الجديد.",
+        challengesTag: "مجرب فعلياً على نسخ ويندوز خام",
+        challengesTitle: "8 مشكلات حقيقية في الويندوز الجديد وكيف قمنا بحلها هندسياً",
+        challengesDesc: "نسخ الويندوز الخام تفتقر لشهادات الأمان وملفات الـ C++؛ هكذا يشخص AutoDeploy ويعالج أعقد 8 مشكلات بعد الفورمات:",
+        lblFault: "العطل // حالة الويندوز الخام",
+        lblPatch: "الحل الهندسي // AUTODEPLOY",
+        ch1Title: "#01 — تعطل السحب والإفلات داخل نافذة المسؤول (UIPI)",
+        ch1Cause: "نظام حماية واجهة المستخدم في ويندوز (UIPI) يمنع سحب ملفات من Explorer (مستخدم عادي) إلى نافذة تعمل بصلاحية مسؤول (Administrator).",
+        ch1Sol: "يفتح البرنامج بصلاحية مستخدم عادي ليعمل السحب والإفلات بحرية تامة، ولا يطلب صلاحية المسؤول (UAC) إلا مرة واحدة فقط لحظة الضغط على زر بدء التثبيت (<code>--autorun-install</code>).",
+        ch2Title: "#02 — فشل التحديثات بخطأ SSL: CERTIFICATE_VERIFY_FAILED",
+        ch2Cause: "نسخة الويندوز الخام لا تكون قد حمّلت شهادات الأمان الجذرية (Root Certificates) من Windows Update بعد، مما يوقف اتصالات HTTPS.",
+        ch2Sol: "فحص وجود الإنترنت مرة واحدة في البداية (لتخطي الفحص كلياً إن لم يوجد نت)، وتطبيق Smart SSL Fallback يتخطى فحص الشهادة تلقائياً إذا كانت مفقودة.",
+        ch3Title: "#03 — تخطي برامج غير مثبتة ([SKIPPED]) بالخطأ",
+        ch3Cause: "البحث الجزئي في أسماء فولدرات Program Files يطابق كلمات عامة مثل Microsoft أو Windows، والـ Regex غير المقيد قد يقطع كلمة Uninstaller إلى Pro.",
+        ch3Sol: "استخدام حدود الكلمات الصارمة (<code>\\b</code>) في تنظيف الأسماء، وإلغاء فحص الفولدرات العشوائية، والاعتماد حصرياً على سجل Uninstall في الريجستري بمطابقة دقيقة.",
+        ch4Title: "#04 — فشل ملفات .bat بخطأ Code 1 أو توقفها عند pause",
+        ch4Cause: "وجود مسافة في مسار الفولدر (مثل D:\\Windows Programs) يكسر أوامر %~dp0 غير المحاطة بعلامات تنصيص، وأمر pause يوقف السكربت في انتظار الكيبورد.",
+        ch4Sol: 'توليد نسخة تشغيل لحظية تضيف <code>@cd /d "%~dp0"</code> في البداية، وتحوط مسارات <code>%~dp0</code> بعلامات تنصيص تلقائياً، وتعطل أوامر <code>pause</code> مع إغلاق stdin.',
+        ch5Title: "#05 — رفض بعض البرامج للأمر /S (مثل Java و FastCopy)",
+        ch5Cause: "بعض المثبتات حساسة لحالة الأحرف (تطلب /s صغيرة في جافا أو /SILENT كاملة في FastCopy) أو تخزن بصمتها بنظام UTF-16LE.",
+        ch5Sol: "فحص البصمات الثنائية بالنظامين، والتنقيب عن الأوامر داخل نصوص الملف نفسه، وتفعيل Smart Retry الذي يرصد الإغلاق السريع (< 4.5 ثانية) ويعيد المحاولة بالبدائل.",
+        ch6Title: "#06 — اختفاء أيقونات سطح المكتب بعد التثبيت الصامت",
+        ch6Cause: "التثبيت الصامت يلغي خيار إنشاء اختصار الديسكتوب افتراضياً في أغلب المثبتات.",
+        ch6Sol: 'تمرير <code>/MERGETASKS="desktopicon"</code> لمثبتات Inno Setup، مع محرك Shortcut Sync يقارن قائمة <code>Start Menu\\Programs</code> قبل وبعد التثبيت وينسخ الاختصار الجديد للديسكتوب.',
+        ch7Title: "#07 — تحول الفولدرات المخفية (مثل ProgramData) إلى ظاهرة",
+        ch7Cause: "إنشاء أو نسخ ملفات تفعيل وإعدادات داخل مسارات النظام قد يغير خصائص الفولدر الأب.",
+        ch7Sol: "حارس خصائص (Attribute Guard) يقرأ خصائص الفولدرات الأب عبر <code>GetFileAttributesW</code> قبل النسخ ويعيد تطبيق خاصيتي Hidden و System عبر <code>SetFileAttributesW</code>.",
+        ch8Title: "#08 — عدم فتح البرنامج على ويندوز خام لنقص ملفات C++",
+        ch8Cause: "مكتبات الواجهة تحتاج ملفات msvcp140.dll و vcruntime140.dll غير الموجودة في الويندوز الخام قبل تثبيت التعريفات.",
+        ch8Sol: "دمج ملفات الـ DLL الأساسية داخل ملف <code>AutoDeploy.exe</code> نفسه أثناء البناء بـ PyInstaller ليعمل فوراً من أول ثانية بعد الفورمات.",
+        changelogTag: "ملاحظات الإصدار • v1.2.0",
+        changelogTitle: "أبرز التحديثات والإصلاحات في AutoDeploy",
+        changelogDesc: "أحدث التحسينات الهندسية في التثبيت التلقائي، واستقرار الإغلاق، ودعم أنظمة 64-bit والمسارات العربية:",
+        changelogGhLink: "عرض جميع الإصدارات على GitHub ↗",
+        cl1Title: "التعامل الذكي مع التحديثات أثناء التثبيت التلقائي",
+        cl1Item1Title: "✓ تخطي ذكي عند عدم وجود المستخدم",
+        cl1Item1Desc: "في حال انتهاء مهلة نافذة التحديث (60 ثانية) بدون استجابة أثناء مرحلة <code>Silent Setup</code>، يفترض البرنامج أن الجهاز غير مراقَب ويحتفظ بالإصدار المحلي ويتخطى فحص التحديثات لباقي برامج هذه المرحلة تلقائياً بدلاً من الانتظار لكل برنامج.",
+        cl1Item2Title: "✓ إعادة التفعيل في التثبيت المخصص",
+        cl1Item2Desc: "يتم إعادة تفعيل إشعارات التحديث تلقائياً بمجرد بدء <code>Phase 2 (Custom Setup)</code> لضمان عمل التحديثات كالمعتاد أثناء التثبيت التفاعلي.",
+        cl2Title: "الاستقرار وإغلاق النافذة وإدارة العمليات",
+        cl2Item1Title: "✓ إيقاف وإغلاق أكثر دقة وأماناً",
+        cl2Item1Desc: "حل مشكلة التوقيت (Race Condition) بين <code>QThread.finished</code> و <code>isRunning()</code> عند الضغط على زر الإيقاف أو إغلاق البرنامج أثناء التشغيل، بحيث ينتظر البرنامج انتهاء الخطوة الحالية بأمان ثم يُغلق دون تعليق.",
+        cl2Item2Title: "✓ تحسين مظهر نافذة تأكيد الإغلاق",
+        cl2Item2Desc: "إضافة تصميم داكن عالي التباين لنافذة تأكيد الإغلاق أثناء التثبيت لضمان وضوح النصوص والأزرار.",
+        cl2Item3Title: "✓ تأمين منع تكرار التشغيل (Mutex) لأنظمة 64-bit",
+        cl2Item3Desc: "تحديث دوال الويندوز <code>CreateMutexW</code> بتعريفات 64-bit دقيقة (<code>use_last_error=True</code>) مع دعم اكتشاف النسخ العاملة بصلاحيات المسؤول (<code>ERROR_ACCESS_DENIED</code>) والسماح بالتشغيل عند حدوث خطأ غير متوقع في النظام.",
+        cl2Item4Title: "✓ منع تراكم نوافذ الأخطاء",
+        cl2Item4Desc: "استمرار تسجيل جميع الأخطاء غير المتوقعة في ملف <code>crash_log.txt</code> مع تقييد ظهور نافذة التنبيه المنبثقة بمرة واحدة كحد أقصى كل 30 ثانية.",
+        cl3Title: "تحسينات تشغيل ملفات الباتش والسجلات",
+        cl3Item1Title: "✓ دعم المسارات والأسماء العربية في ملفات .bat / .cmd",
+        cl3Item1Desc: "إضافة <code>re.ASCII</code> لتعبيرات البحث النمطية لمنع التعامل مع بعض بايتات الحروف العربية (UTF-8) على أنها مسافات عند إضافة علامات التنصيص التلقائية لمسارات <code>%~dp0</code> أو تجاوز أمر <code>pause</code>.",
+        cl3Item2Title: "✓ سجلات أنظف وأكثر دقة",
+        cl3Item2Desc: "إزالة تكرار رسالة كود الخروج <code>1638</code> (البرنامج مثبت مسبقاً)، وضمان حفظ مسار التخزين في ملف السجل الخارجي دائماً دون تكراره في شاشة العرض.",
+        srvHeading: "هل تحتاج إلى بناء أداة أتمتة أو برنامج سطح مكتب مخصص؟",
+        srvDesc: "قمت بتصميم وبناء AutoDeploy بالكامل لحل مشكلات عملية حقيقية. أنا متاح لتصميم وبرمجة أدوات أتمتة مخصصة، وبرامج سطح مكتب لنظام ويندوز (Python / PyQt6) تعمل كملفات تنفيذية مستقلة تناسب الأفراد والشركات الصغيرة.",
+        srvItem1: "بناء أدوات الأتمتة والتثبيت المخصصة لويندوز",
+        srvItem2: "تصميم تطبيقات سطح مكتب حديثة بـ PyQt6",
+        srvItem3: "برمجة أدوات إدارة الملفات والنظام والريجستري",
+        srvItem4: "تحويل البرامج لملفات .EXE مستقلة تماماً بدون مكتبات",
+        srvBadge: "ملفات تنفيذية مستقلة • دعم كامل للعربية والإنجليزية • جاهزة للعمل فوراً",
+        contactHeading: "قنوات التواصل والدعم الفني",
+        contactSub: "لطلب بناء أداة برمجية مخصصة تفضل بزيارة المركز الرئيسي (Services Hub)، وللإبلاغ عن أعطال AutoDeploy أو المراسلة المباشرة:",
+        lblHubContact: "المركز الرئيسي للخدمات — تواصل معي / اطلب مشروعك",
+        lblGhIssues: "الإبلاغ عن خطأ أو اقتراح ميزة جديدة",
+        lblEmailAction: "إرسال إيميل ↗",
+        footerCopy: "جميع الحقوق محفوظة © 2026 عصام حراز (Esam Haraz)."
+      }
+    };
+  </script>
+</body>
+</html>
